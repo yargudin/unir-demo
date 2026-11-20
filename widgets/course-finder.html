@@ -1,0 +1,55 @@
+<!--
+  Course finder widget. Loaded by blocks/widget for a link to /widgets/course-finder.
+  Routing is data-driven (see course-finder.js):
+  - type option:  data-path       listing for the type alone
+                  data-area-path  listing segment under an area (/<area>/<segment>/), when one exists
+                  data-path-<official value>  type listing for one official status
+  - area option:  value = area slug (/<area>/)
+  - form:         data-fallback   page when nothing is selected
+-->
+<form class="course-finder-form" data-fallback="/oferta-academica/" novalidate>
+  <div class="course-finder-field">
+    <label class="course-finder-label" data-for="type">Tipos de estudio</label>
+    <select class="course-finder-select" name="type" data-id="type">
+      <option value="">Tipos de estudio</option>
+      <option value="grados" data-path="grados-online" data-area-path="grados-online">Grados, Dobles Grados y Menciones</option>
+      <option value="minors" data-path="minor">Minors</option>
+      <option value="masteres" data-path="masters-online" data-area-path="masters-online" data-path-oficiales="masters-oficiales" data-path-propios="masters-formacion-permanente">Másteres</option>
+      <option value="doctorados" data-path="doctorados">Doctorados</option>
+      <option value="experto" data-path="cursos-experto-universitario">Experto Universitario</option>
+      <option value="programas" data-path="formacion-permanente">Programas</option>
+      <option value="cursos" data-path="cursos-online">Cursos</option>
+    </select>
+  </div>
+  <div class="course-finder-field">
+    <label class="course-finder-label" data-for="area">Áreas de estudio</label>
+    <select class="course-finder-select" name="area" data-id="area">
+      <option value="">Áreas de estudio</option>
+      <option value="educacion">Educación</option>
+      <option value="derecho">Derecho</option>
+      <option value="ciencias-politicas">Ciencias Políticas y Relaciones Internacionales</option>
+      <option value="ciencias-seguridad">Ciencias de la Seguridad</option>
+      <option value="empresa">Empresa</option>
+      <option value="mba">MBA</option>
+      <option value="marketing-comunicacion">Marketing y Comunicación</option>
+      <option value="ingenieria">Ingeniería y Tecnología</option>
+      <option value="diseno">Diseño</option>
+      <option value="salud">Ciencias de la Salud</option>
+      <option value="ciencias-sociales">Ciencias Sociales</option>
+      <option value="humanidades">Humanidades</option>
+      <option value="artes">Artes</option>
+      <option value="musica">Música</option>
+      <option value="idiomas">Idiomas</option>
+      <option value="acceso-a-mayores">Acceso a la universidad para mayores</option>
+    </select>
+  </div>
+  <div class="course-finder-field">
+    <label class="course-finder-label" data-for="official">Oficialidad</label>
+    <select class="course-finder-select" name="official" data-id="official">
+      <option value="">Oficialidad</option>
+      <option value="oficiales">Títulos oficiales</option>
+      <option value="propios">Títulos propios</option>
+    </select>
+  </div>
+  <button class="course-finder-submit button" type="submit">Encuentra tu título</button>
+</form>

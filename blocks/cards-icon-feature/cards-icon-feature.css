@@ -1,0 +1,112 @@
+/* Block: cards-icon-feature -- values from https://www.unir.net/ section.panel-icons */
+
+/* source panel is full bleed: cancel the section content padding */
+.cards-icon-feature {
+  margin: 0 calc(-1 * var(--content-padding));
+  text-align: center;
+}
+
+.cards-icon-feature > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.cards-icon-feature .cards-icon-feature-card {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 24px 20px 50px;
+  border-top: 1px solid #e9e9e9;
+  text-align: center;
+}
+
+/* icon: 64px glyph in a 68px line, gold */
+.cards-icon-feature .cards-icon-feature-card-icon > p,
+.cards-icon-feature .cards-icon-feature-card-icon {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.cards-icon-feature .cards-icon-feature-card-icon {
+  height: 68px;
+}
+
+.cards-icon-feature .cards-icon-feature-card-icon img,
+.cards-icon-feature .cards-icon-feature-card-icon svg {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.cards-icon-feature .cards-icon-feature-card-icon .icon {
+  display: block;
+  width: 64px;
+  height: 64px;
+  color: var(--brand-gold);
+  font-size: 64px;
+  line-height: 64px;
+}
+
+.cards-icon-feature .icon-font::before {
+  display: block;
+  font-family: var(--icon-font-family);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cards-icon-feature .icon-professor::before {
+  content: '\e80a';
+}
+
+.cards-icon-feature .icon-screen::before {
+  content: '\e859';
+}
+
+.cards-icon-feature .icon-mentor::before {
+  content: '\e80d';
+}
+
+/* title: source has a leading <br>, i.e. one empty 24px line above the text */
+.cards-icon-feature .cards-icon-feature-card-body > * {
+  margin: 0;
+}
+
+.cards-icon-feature .cards-icon-feature-card-body .cards-icon-feature-title {
+  margin: 24px 0 18px;
+  color: var(--heading-color);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.01px;
+}
+
+.cards-icon-feature .cards-icon-feature-card-body p {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (width >= 768px) {
+  .cards-icon-feature > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards-icon-feature .cards-icon-feature-card {
+    padding: 40px 18px 60px;
+    border-left: 1px solid #e9e9e9;
+  }
+
+  .cards-icon-feature .cards-icon-feature-card-body p {
+    line-height: 24px;
+  }
+}
+
+@media (width >= 992px) {
+  .cards-icon-feature .cards-icon-feature-card {
+    /* 5% of the panel width = 15% of each third */
+    padding: 50px 15% 60px;
+  }
+}

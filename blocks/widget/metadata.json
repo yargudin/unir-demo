@@ -1,0 +1,24 @@
+{
+  "variantName": "widget",
+  "baseBlock": "widget",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "loads an HTML/CSS/JS widget from /widgets/ for interactive, data-driven features that are not authorable content",
+    "summary": "The widget block is selected by the linked widget name (/widgets/course-finder), not a CSS variant; no variant name justified."
+  },
+  "contentPattern": {
+    "structure": "one row, one cell: a link to /widgets/<name> (e.g. /widgets/course-finder). Query parameters on the link become data-* config on the widget element (e.g. /widgets/course-finder?base=https://www.unir.net routes the finder to the source site). The block takes the widget name as its class",
+    "summary": "Course finder: Interactive filter/search form driven by data (options, static page routing); not authorable as default content. Uses the project widget block (e.g. /widgets/course-finder)."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Course finder under the home hero (/widgets/course-finder: tipo de estudio, área, oficialidad, \"Encuentra tu título\"), light-grey section style.",
+  "reuseGuidance": "Use only for interactive features (forms, finders, calculators). Build the widget as /widgets/<name>.html/.css/.js; never fork this block per widget.",
+  "sectionMetadata": {
+    "style": "light-grey"
+  },
+  "widgets": [
+    "course-finder"
+  ],
+  "sourceUrl": "https://www.unir.net/"
+}

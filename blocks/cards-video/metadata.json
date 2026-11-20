@@ -1,0 +1,18 @@
+{
+  "variantName": "cards-video",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "full-bleed video poster tiles with tint, play icon and title; plays YouTube in a modal dialog",
+    "summary": "Full-bleed poster tiles with blue overlay, play icon, title; opens YouTube in modal"
+  },
+  "contentPattern": {
+    "structure": "one row per video. Cell 1: poster image. Cell 2: title (heading or paragraph) and the YouTube link (watch, youtu.be, embed or shorts URL; a t= start time is kept). If the link text is the title it is kept as the visible title. Non-YouTube links stay plain links over the tile",
+    "summary": "Video slider: Repeating look-alike video tiles; interactive modal playback"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Video slider at the bottom of the home page.",
+  "reuseGuidance": "Use for YouTube video teasers. For a single inline video use an embed/video block.",
+  "sourceUrl": "https://www.unir.net/"
+}

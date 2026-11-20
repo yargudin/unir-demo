@@ -1,0 +1,69 @@
+/* Brand tokens extracted from https://www.unir.net/ */
+:root {
+  /* brand colors */
+  --brand-primary: #0098cd;
+  --brand-primary-dark: #00729a;
+  --brand-secondary: #0053af;
+  --brand-secondary-dark: #006c8f;
+  --brand-gold: #b6a760;
+  --brand-orange: #ee6946;
+  --brand-black: #121212;
+  --brand-grey-light: #f4f4f4;
+  --brand-grey-border: #d3d3d3;
+  --brand-gradient: linear-gradient(135deg, var(--brand-primary) 35%, var(--brand-secondary) 100%);
+
+  /* semantic colors */
+  --background-color: #fff;
+  --light-color: var(--brand-grey-light);
+  --dark-color: var(--brand-black);
+  --text-color: #414141;
+  --heading-color: var(--brand-black);
+  --link-color: var(--brand-primary);
+  --link-hover-color: var(--brand-primary-dark);
+
+  /* fonts */
+  --body-font-family: proeduca, proeduca-fallback, arial, sans-serif;
+  --heading-font-family: proeduca, proeduca-fallback, arial, sans-serif;
+  --icon-font-family: unir-icons;
+
+  /* body sizes (mobile) */
+  --body-font-size-m: 14px;
+  --body-font-size-s: 13px;
+  --body-font-size-xs: 11px;
+  --body-line-height: 22px;
+
+  /* heading sizes (mobile) */
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 24px;
+  --heading-font-size-l: 20px;
+  --heading-font-size-m: 16px;
+  --heading-font-size-s: 14px;
+  --heading-font-size-xs: 12px;
+
+  /* spacing */
+  --content-max-width: 1440px;
+  --content-padding: 20px;
+  --section-padding: 32px;
+  --section-gap: 40px;
+
+  /* nav height */
+  --nav-height: 64px;
+}
+
+@media (width >= 900px) {
+  :root {
+    --body-font-size-m: 16px;
+    --body-font-size-s: 14px;
+    --body-font-size-xs: 11px;
+    --body-line-height: 24px;
+    --heading-font-size-xxl: 40px;
+    --heading-font-size-xl: 28px;
+    --heading-font-size-l: 20px;
+    --heading-font-size-m: 16px;
+    --heading-font-size-s: 14px;
+    --heading-font-size-xs: 12px;
+    --content-padding: 82px;
+    --section-padding: 40px;
+    --section-gap: 56px;
+  }
+}

@@ -1,0 +1,158 @@
+/* cards-featured: "Destacados" promo grid (values from unir.net computed styles) */
+
+/* mobile: single column, 10px between cards, 10px under the last card */
+.cards-featured {
+  padding-bottom: 10px;
+}
+
+.cards-featured > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 10px;
+}
+
+.cards-featured .cards-featured-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.cards-featured .cards-featured-card-image {
+  flex: 0 0 auto;
+  height: 152px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cards-featured .cards-featured-card-image picture {
+  display: block;
+  height: 100%;
+}
+
+.cards-featured .cards-featured-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.cards-featured .cards-featured-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 32px;
+}
+
+.cards-featured .cards-featured-card-body > * {
+  margin: 0;
+}
+
+.cards-featured .cards-featured-card-body h3 {
+  color: var(--heading-color);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.01px;
+
+  /* title margin (16px) + CTA footer margin (10px) */
+  margin-bottom: 26px;
+}
+
+.cards-featured .cards-featured-card-has-image .cards-featured-card-body h3 {
+  font-size: 24px;
+  line-height: 32px;
+
+  /* title margin (35px) + CTA footer padding (10px) */
+  margin-bottom: 45px;
+}
+
+/* text cards keep the CTA on the card bottom when the card stretches */
+.cards-featured .cards-featured-card-text .cards-featured-card-cta {
+  margin-top: auto;
+}
+
+/* CTA text link: uppercase, bold, angle-right icon that slides on hover */
+.cards-featured .cards-featured-card-cta a:any-link {
+  display: inline-block;
+  color: var(--link-color);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cards-featured .cards-featured-card-cta a:any-link::after {
+  content: '\e837';
+  margin-left: 8px;
+  font-family: var(--icon-font-family);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  transition: margin-left 0.4s;
+}
+
+.cards-featured .cards-featured-card-cta a:any-link:hover,
+.cards-featured .cards-featured-card-cta a:any-link:focus-visible {
+  color: var(--link-hover-color);
+}
+
+.cards-featured .cards-featured-card-cta a:any-link:hover::after,
+.cards-featured .cards-featured-card-cta a:any-link:focus-visible::after {
+  margin-left: 16px;
+}
+
+/* tablet typography and spacing (source switches at 768px) */
+@media (width >= 768px) {
+  .cards-featured {
+    padding-bottom: 20px;
+  }
+
+  .cards-featured > ul {
+    gap: 20px;
+  }
+
+  .cards-featured .cards-featured-card-image {
+    height: 162px;
+  }
+
+  .cards-featured .cards-featured-card-body h3 {
+    font-size: 18px;
+    line-height: 26px;
+
+    /* title margin (20px) + CTA footer margin (20px) */
+    margin-bottom: 40px;
+  }
+
+  .cards-featured .cards-featured-card-has-image .cards-featured-card-body h3 {
+    font-size: 24px;
+    line-height: 30px;
+
+    /* title margin (16px) + CTA footer padding (20px) */
+    margin-bottom: 36px;
+  }
+}
+
+/* desktop: lead image card in the first column, text cards stacked
+   two per column in the next two columns (source switches at 1025px) */
+@media (width >= 1025px) {
+  .cards-featured > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+  }
+
+  .cards-featured .cards-featured-card-has-image {
+    grid-row: span 2;
+  }
+
+  .cards-featured .cards-featured-card-image {
+    height: 152px;
+  }
+}

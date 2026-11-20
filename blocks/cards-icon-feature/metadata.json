@@ -1,0 +1,18 @@
+{
+  "variantName": "cards-icon-feature",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "row of centered value-proposition items: icon, title, short text",
+    "summary": "Centered icon + title + text, top border, no images"
+  },
+  "contentPattern": {
+    "structure": "one row per item. Cell 1: icon (image or :icon-name:). Cell 2: title (heading or bold paragraph) and text. A single-cell row whose first paragraph is only an icon also works",
+    "summary": "Value proposition icons: Look-alike icon + title + text items in a row"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Value proposition icons (Docencia 100% online, Clases en directo, Mentor).",
+  "reuseGuidance": "Use for 3 to 4 short icon features. Not for photo cards.",
+  "sourceUrl": "https://www.unir.net/"
+}

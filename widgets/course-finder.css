@@ -1,0 +1,108 @@
+/* course finder bar: three selects + submit inside a grey frame (source: unir.net #up139) */
+.course-finder {
+  position: relative;
+  z-index: 1;
+}
+
+/* the bar overlaps the bottom of a hero carousel placed right before its section (source: 20px) */
+main .section.carousel-hero-container + .section > .course-finder-wrapper:first-child .course-finder {
+  margin-top: calc(-1 * (var(--section-gap) + 20px));
+}
+
+/* padded section styles add their top padding to the distance to cover */
+main .section.carousel-hero-container + .section:is(.light, .highlight, .light-grey) > .course-finder-wrapper:first-child .course-finder {
+  margin-top: calc(-1 * (var(--section-gap) + var(--section-padding) + 20px));
+}
+
+.course-finder .course-finder-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--brand-grey-border);
+}
+
+.course-finder .course-finder-field {
+  box-sizing: border-box;
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 8px;
+  border: 1px solid #d0d0d0;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.course-finder .course-finder-field:hover,
+.course-finder .course-finder-field:has(.course-finder-select:focus-visible),
+.course-finder .course-finder-field:has(option:checked:not([value=""])) {
+  border-color: var(--brand-primary);
+}
+
+/* angle-down icon */
+.course-finder .course-finder-field::after {
+  content: '\e83a';
+  position: absolute;
+  top: 50%;
+  right: -2px;
+  width: 55px;
+  color: var(--brand-primary);
+  font-family: var(--icon-font-family);
+  font-size: 16px;
+  line-height: 15px;
+  text-align: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* labels stay available to assistive tech; the first option shows the prompt */
+.course-finder .course-finder-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.course-finder .course-finder-select {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 46px;
+  margin: 0;
+  padding: 14px 32px 14px 16px;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: none;
+  color: #606060;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  appearance: none;
+  cursor: pointer;
+}
+
+.course-finder .course-finder-submit {
+  flex: 1 1 auto;
+  width: auto;
+  margin: 0;
+  padding: 16px 0;
+}
+
+@media (width >= 768px) {
+  .course-finder .course-finder-field {
+    width: calc(25% - 16px);
+    margin: 0 8px 0 0;
+  }
+
+  .course-finder .course-finder-submit {
+    width: 25%;
+  }
+}

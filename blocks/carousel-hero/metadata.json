@@ -1,0 +1,18 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "full-width rotating promo slider: text panel beside a photo, dot navigation, autoplay",
+    "summary": "Full-width rotating hero: half blue text panel + half photo, dot nav"
+  },
+  "contentPattern": {
+    "structure": "one row per slide. Cell 1: image (alone in the cell). Cell 2: heading (H2), description paragraph, optional CTA link. Cell order may be swapped; the image cell is detected. Slides rotate every 6 s (paused on hover/focus and with reduced motion); with one row no dots are shown",
+    "summary": "Hero slider: Interactive rotating slider with dot navigation; each slide has image + text"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Home page hero at the top of the page.",
+  "reuseGuidance": "Use for multi-slide promotional heroes with text + photo. For a single static hero use hero.",
+  "sourceUrl": "https://www.unir.net/"
+}

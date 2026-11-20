@@ -1,0 +1,21 @@
+{
+  "variantName": "cards-featured",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "featured promo grid: one tall image card plus compact text cards with an uppercase CTA",
+    "summary": "Mixed grid: one tall image card + 4 compact text cards with uppercase CTA"
+  },
+  "contentPattern": {
+    "structure": "one row per card. Cell 1: image (optional; a card with an image spans two grid rows). Cell 2: title (H3) and a CTA link in its own paragraph (the last link-only paragraph becomes the CTA)",
+    "summary": "Destacados: Repeating promo items in a grid"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Destacados section, light-grey section style.",
+  "reuseGuidance": "Use for a mixed highlight grid of 3 to 6 promos. For uniform news cards use cards-news.",
+  "sectionMetadata": {
+    "style": "light-grey"
+  },
+  "sourceUrl": "https://www.unir.net/"
+}

@@ -1,0 +1,120 @@
+/* cards-press: values from unir.net computed styles ("UNIR en los medios" .card.row--no-gap.-border-top) */
+.cards-press {
+  border-top: 1px solid #e9e9e9;
+}
+
+.cards-press > ul {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-press .cards-press-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0;
+  border: 1px solid #e9e9e9;
+}
+
+.cards-press .cards-press-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  padding: 30px 30px 0;
+}
+
+.cards-press .cards-press-card-body p {
+  margin: 0;
+}
+
+.cards-press .cards-press-title {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.01px;
+  color: var(--heading-color);
+}
+
+/* "date.- outlet" link area with the short divider above it */
+.cards-press .cards-press-card-body p.cards-press-meta {
+  margin: 0;
+  padding: 0 0 20px;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.cards-press .cards-press-meta::before {
+  content: '';
+  display: block;
+  width: 40px;
+  margin-bottom: 19px;
+  border-top: 1px solid #e9e9e9;
+}
+
+main .cards-press a.cards-press-source:any-link {
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--brand-primary);
+}
+
+main .cards-press a.cards-press-source:hover,
+main .cards-press a.cards-press-source:focus-visible {
+  color: var(--brand-primary-dark);
+  text-decoration: none;
+}
+
+/* external icon (unir-icons "external") */
+.cards-press a.cards-press-source::after {
+  content: '\e82f';
+  margin-left: 8px;
+  font-family: var(--icon-font-family);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* whole card is clickable through the source link */
+.cards-press .cards-press-card-linked .cards-press-source::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+@media (width >= 768px) {
+  .cards-press .cards-press-card {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .cards-press .cards-press-title {
+    margin: 0 0 24px;
+  }
+}
+
+@media (width >= 1024px) {
+  .cards-press .cards-press-card {
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+@media (width >= 1280px) {
+  .cards-press .cards-press-card-body {
+    padding: 30px 46px 0;
+  }
+}

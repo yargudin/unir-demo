@@ -1,0 +1,18 @@
+{
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "three-column news cards: image, caption, linked title, excerpt, top border",
+    "summary": "3-col image cards with caption, blue title link, excerpt, top border | 3-col image cards with caption, blue title link, excerpt, top border | 3-col image cards with caption, blue title link, excerpt, top border"
+  },
+  "contentPattern": {
+    "structure": "one row per article. Cell 1: image (optional). Cell 2: optional caption paragraph (before the title), title (H3) linked to the article, excerpt paragraph. The image links to the title link",
+    "summary": "Actualidad académica: Dynamic list: each item links to a news detail page | Investigación: Dynamic list: each item links to a news detail page | Compromiso social y cultural: Repeating linked image cards that wrap to a second row"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Actualidad académica, Investigación, Compromiso social y cultural.",
+  "reuseGuidance": "Default choice for article or initiative listings with an image and excerpt.",
+  "sourceUrl": "https://www.unir.net/"
+}

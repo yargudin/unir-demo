@@ -1,0 +1,18 @@
+{
+  "variantName": "cards-press",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "text-only press mention cards: title plus a \"date - outlet\" link, top border",
+    "summary": "Text-only 3-col cards: title + date/outlet link, top border"
+  },
+  "contentPattern": {
+    "structure": "one row per mention. One cell (or two, merged): title (H3 or paragraph) and a paragraph with the \"date - outlet\" link to the article. The last link makes the whole card clickable; links to another host open in a new tab",
+    "summary": "UNIR en los medios: Dynamic list of press items each linking to the article"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "UNIR en los medios.",
+  "reuseGuidance": "Use for external press links without images.",
+  "sourceUrl": "https://www.unir.net/"
+}

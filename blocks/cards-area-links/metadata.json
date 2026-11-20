@@ -1,0 +1,18 @@
+{
+  "variantName": "cards-area-links",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "dense text-only list of study-area links flowing through up to 4 columns with square bullets",
+    "summary": "Text-only, dense 4-col grid of bulleted heading links"
+  },
+  "contentPattern": {
+    "structure": "one row per area. One cell with the area link (an H4 or paragraph). Images are ignored",
+    "summary": "Oferta académica por áreas de estudio: Look-alike items that each link to an area detail page and flow/wrap across columns"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Oferta académica por áreas de estudio.",
+  "reuseGuidance": "Use for long lists of plain category links. Not for cards with images or descriptions.",
+  "sourceUrl": "https://www.unir.net/"
+}

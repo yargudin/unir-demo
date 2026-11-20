@@ -1,0 +1,21 @@
+{
+  "variantName": "cards-program-slider",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "horizontal slider of program cards with prev/next arrows and area filter chips built from each card's area",
+    "summary": "Horizontal scroll slider with arrows and area filter chips built from card tags; eyebrow + meta row"
+  },
+  "contentPattern": {
+    "structure": "one row per program. Cell 1: image. Cell 2: eyebrow paragraph (e.g. \"Máster Universitario en\"), title (H3) linked to the program page, description paragraph, bulleted meta list (duration, ECTS, start date). Cell 3: area name, plain text (several areas separated by commas). Chips (\"Todos\" + each distinct area in first-seen order) appear when at least two areas exist; selecting a chip shows only that area's cards",
+    "summary": "Descubre los principales títulos: Dynamic list of program cards each linking to a program detail page; chips filter by area and arrows scroll the row. Each card carries its area tag so the block builds the chips."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Descubre los principales títulos, light-grey section style.",
+  "reuseGuidance": "Use for long, filterable program lists. For a short static grid use cards-news.",
+  "sectionMetadata": {
+    "style": "light-grey"
+  },
+  "sourceUrl": "https://www.unir.net/"
+}

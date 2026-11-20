@@ -1,0 +1,265 @@
+{
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.unir.net/"
+      ],
+      "representativeUrl": "https://www.unir.net/",
+      "description": "UNIR homepage",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [
+            "body > main > div.container > section.slider.hero--slider-half"
+          ]
+        },
+        {
+          "name": "widget",
+          "instances": [
+            "#up139"
+          ]
+        },
+        {
+          "name": "cards-study-tiles",
+          "instances": [
+            "body > main > div.container > section.l-to-edge.-padding-vertical--element div.distributor-block"
+          ]
+        },
+        {
+          "name": "cards-area-links",
+          "instances": [
+            "body > main > div.container > div.row--content-small div.row.-padding-vertical--element"
+          ]
+        },
+        {
+          "name": "cards-featured",
+          "instances": [
+            "body > main > div.container > section.l-to-edge.-bg-neutral-light.-padding-vertical--block:not(.card) div.row--small-gap"
+          ]
+        },
+        {
+          "name": "cards-event",
+          "instances": [
+            "body > main > div.container > section.-margin-top--block div.card--event"
+          ]
+        },
+        {
+          "name": "cards-program-slider",
+          "instances": [
+            "body > main > div.container > section.l-to-edge.-bg-neutral-light.card div.js-cards-filter"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            "body > main > div.container > div.card.row--no-gap.-border-top:nth-of-type(4)",
+            "body > main > div.container > div.card.row--no-gap.-border-top:nth-of-type(7)",
+            "body > main > div.container > div.card.row--no-gap.-border-top:nth-of-type(10)"
+          ]
+        },
+        {
+          "name": "cards-press",
+          "instances": [
+            "body > main > div.container > div.card.row--no-gap.-border-top:nth-of-type(11)"
+          ]
+        },
+        {
+          "name": "cards-icon-feature",
+          "instances": [
+            "body > section.panel-icons"
+          ]
+        },
+        {
+          "name": "cards-video",
+          "instances": [
+            "body > section.slider"
+          ]
+        }
+      ],
+      "urlPattern": "/",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero slider",
+          "selector": [
+            "body > main > div.container > section.slider.hero--slider-half"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Course finder",
+          "selector": [
+            "#up139"
+          ],
+          "style": null,
+          "blocks": [
+            "widget"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Study type tiles",
+          "selector": [
+            "body > main > div.container > section.l-to-edge.-padding-vertical--element"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-study-tiles"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Oferta académica por áreas de estudio",
+          "selector": [
+            "body > main > div.container > div.row--content-small"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-area-links"
+          ],
+          "defaultContent": [
+            "body > main > div.container > div.row--content-small div.heading--h2",
+            "body > main > div.container > div.-margin-bottom--segment"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Destacados",
+          "selector": [
+            "body > main > div.container > section.l-to-edge.-bg-neutral-light.-padding-vertical--block:not(.card)"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "cards-featured"
+          ],
+          "defaultContent": [
+            "body > main > div.container > section.l-to-edge.-bg-neutral-light.-padding-vertical--block:not(.card) div.heading--h2"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Próximos eventos en directo",
+          "selector": [
+            "body > main > div.container > section.-margin-top--block"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-event"
+          ],
+          "defaultContent": [
+            "body > main > div.container > section.-margin-top--block > h2",
+            "body > main > div.container > section.-margin-top--block > a.link--icon-after"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Descubre los principales títulos",
+          "selector": [
+            "body > main > div.container > section.l-to-edge.-bg-neutral-light.card"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "cards-program-slider"
+          ],
+          "defaultContent": [
+            "body > main > div.container > section.l-to-edge.-bg-neutral-light.card h2"
+          ]
+        },
+        {
+          "id": "section-8",
+          "name": "Actualidad académica",
+          "selector": [
+            "body > main > div.container > div.editor.-margin-top--block.-margin-bottom--element:nth-of-type(3)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            "body > main > div.container > div.editor.-margin-top--block.-margin-bottom--element:nth-of-type(3)",
+            "body > main > div.container > div.editor.-margin-bottom--block.-margin-top--element:nth-of-type(5)"
+          ]
+        },
+        {
+          "id": "section-9",
+          "name": "Investigación",
+          "selector": [
+            "body > main > div.container > div.editor.-margin-top--block.-margin-bottom--element:nth-of-type(6)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            "body > main > div.container > div.editor.-margin-top--block.-margin-bottom--element:nth-of-type(6)",
+            "body > main > div.container > div.editor.-margin-bottom--block.-margin-top--element:nth-of-type(8)"
+          ]
+        },
+        {
+          "id": "section-10",
+          "name": "Compromiso social y cultural",
+          "selector": [
+            "body > main > div.container > div.editor.-margin-top--block.-margin-bottom--element:nth-of-type(9)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            "body > main > div.container > div.editor.-margin-top--block.-margin-bottom--element:nth-of-type(9)"
+          ]
+        },
+        {
+          "id": "section-11",
+          "name": "UNIR en los medios",
+          "selector": [
+            "body > main > div.container > article.editor.-margin-top--block.-margin-bottom--block"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-press"
+          ],
+          "defaultContent": [
+            "body > main > div.container > article.editor.-margin-top--block.-margin-bottom--block",
+            "body > main > div.container > div.editor.-margin-bottom--block.-margin-top--element:nth-of-type(12)"
+          ]
+        },
+        {
+          "id": "section-12",
+          "name": "Value proposition icons",
+          "selector": [
+            "body > section.panel-icons"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-13",
+          "name": "Video slider",
+          "selector": [
+            "body > section.slider"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-video"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

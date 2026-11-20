@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "url": "https://www.unir.net/",
+  "path": "index",
+  "timestamp": "2026-11-20T12:25:50.746Z",
+  "title": "UNIR - La Universidad Online - A Distancia 100% Virtual",
+  "template": "home",
+  "blocks": [
+    "carousel-hero",
+    "widget",
+    "cards-study-tiles",
+    "cards-area-links",
+    "cards-featured",
+    "cards-event",
+    "cards-program-slider",
+    "cards-news",
+    "cards-news",
+    "cards-news",
+    "cards-press",
+    "cards-icon-feature",
+    "cards-video"
+  ],
+  "importScript": "458bd93c10b5"
+}

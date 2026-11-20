@@ -1,0 +1,333 @@
+/* cards-video: full-bleed video poster tiles (values from unir.net section.slider) */
+
+/* the tiles run edge to edge, like the source slider */
+main .section > .cards-video-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.cards-video {
+  color: var(--text-color);
+}
+
+/* mobile: one tile per view, swiped or moved with the controls below */
+.cards-video > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.cards-video > ul::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-video .cards-video-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 226px;
+  padding: 50px 10px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background-color: var(--brand-primary);
+}
+
+.cards-video .cards-video-card-poster,
+.cards-video .cards-video-card-poster picture,
+.cards-video .cards-video-card-poster img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 0;
+}
+
+.cards-video .cards-video-card-poster img {
+  object-fit: cover;
+}
+
+/* backdrop tint over the poster */
+.cards-video .cards-video-card-poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 40%);
+  transition: background-color 0.4s;
+}
+
+.cards-video .cards-video-card-body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.cards-video .cards-video-card-body > * {
+  margin: 0;
+}
+
+.cards-video .cards-video-card-body .cards-video-title {
+  margin: 10px 0 0;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+/* play control: the round icon sits above the title; its ::after covers the whole tile */
+.cards-video .cards-video-play {
+  position: static;
+  z-index: 1;
+  order: -1;
+  display: block;
+  box-sizing: border-box;
+  width: 56px;
+  height: 58px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #fff;
+  font-size: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cards-video .cards-video-play::before {
+  content: '\e82d';
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 54px;
+  height: 54px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--icon-font-family);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 54px;
+  text-align: center;
+}
+
+.cards-video .cards-video-play::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.cards-video .cards-video-play:focus-visible {
+  outline: none;
+}
+
+.cards-video .cards-video-play:focus-visible::after {
+  outline: 3px solid #fff;
+  outline-offset: -3px;
+}
+
+/* mobile slider controls */
+.cards-video .cards-video-controls {
+  display: flex;
+}
+
+.cards-video .cards-video-controls button {
+  flex: 1 1 50%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--brand-primary);
+  color: #fff;
+  font-size: 10px;
+  line-height: 40px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.cards-video .cards-video-controls button::before {
+  display: inline-block;
+  font-family: var(--icon-font-family);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.cards-video .cards-video-controls .cards-video-prev::before {
+  content: '\e838';
+}
+
+.cards-video .cards-video-controls .cards-video-next::before {
+  content: '\e837';
+}
+
+.cards-video .cards-video-controls button:hover,
+.cards-video .cards-video-controls button:focus-visible {
+  background-color: var(--brand-primary-dark);
+}
+
+/* video modal: full-screen white panel, as on the source */
+.cards-video .cards-video-dialog {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.cards-video .cards-video-dialog[open] {
+  display: flex;
+  align-items: center;
+}
+
+.cards-video .cards-video-dialog::backdrop {
+  background-color: rgb(0 0 0 / 40%);
+}
+
+.cards-video .cards-video-dialog-frame {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+  margin: auto 0;
+  padding: 0 16px;
+}
+
+.cards-video .cards-video-dialog-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cards-video .cards-video-dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.cards-video .cards-video-dialog-close::before {
+  content: '\e830';
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--brand-primary);
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--brand-primary);
+  font-family: var(--icon-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  transition: color 0.4s;
+}
+
+body.cards-video-modal-open {
+  overflow: hidden;
+}
+
+/* source switches to three tiles per row at 768px */
+@media (width >= 768px) {
+  .cards-video > ul {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+  }
+
+  .cards-video .cards-video-card {
+    min-height: 240px;
+    padding: 50px 17px;
+  }
+
+  .cards-video .cards-video-card-body .cards-video-title {
+    margin: 10px 0;
+    font-size: 19px;
+    line-height: 25px;
+  }
+
+  .cards-video .cards-video-play {
+    width: 62px;
+    height: 65px;
+  }
+
+  .cards-video .cards-video-play::before {
+    width: 60px;
+    height: 60px;
+    font-size: 21px;
+    line-height: 60px;
+  }
+
+  .cards-video .cards-video-controls {
+    display: none;
+  }
+
+  .cards-video .cards-video-dialog-frame {
+    height: 100%;
+    margin: 0;
+    padding: 60px 17px 9px;
+  }
+}
+
+@media (width >= 1280px) {
+  .cards-video .cards-video-card {
+    min-height: 287px;
+    padding: 70px 60px;
+  }
+
+  .cards-video .cards-video-card-body .cards-video-title {
+    margin: 20px 0;
+    font-size: 21px;
+    line-height: 27px;
+  }
+}
+
+@media (width >= 1600px) {
+  .cards-video .cards-video-card {
+    min-height: 360px;
+    padding: 90px 4.875vw;
+  }
+
+  .cards-video .cards-video-card-body .cards-video-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+@media (width >= 1800px) {
+  .cards-video .cards-video-card {
+    padding-right: 6vw;
+    padding-left: 6vw;
+  }
+}

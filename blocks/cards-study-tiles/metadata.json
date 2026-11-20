@@ -1,0 +1,18 @@
+{
+  "variantName": "cards-study-tiles",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "row of linked study-type tiles: photo tiles with an overlaid title and arrow, plus text-only link bars stacked in one column",
+    "summary": "4-col row: photo tiles with overlaid title+arrow, plus stacked dark text link bars"
+  },
+  "contentPattern": {
+    "structure": "one row per tile. Cell 1: image (leave empty for a text-only link bar). Cell 2: the tile title as a link (heading or paragraph). Consecutive text-only rows stack together in one grid column. Links to another host open in a new tab",
+    "summary": "Study type tiles: Repeating linked items of the same kind (study types), each linking to a listing page"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Study-type entry points (Grados, Másteres, Doctorados, Formación Permanente, Formación Profesional).",
+  "reuseGuidance": "Use for a short row of linked category tiles. For editorial cards with descriptions use cards-news.",
+  "sourceUrl": "https://www.unir.net/"
+}
