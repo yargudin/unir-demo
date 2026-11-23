@@ -1,0 +1,25 @@
+{
+  "variantName": "quote-portrait",
+  "baseBlock": "quote",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Testimonial: square portrait beside a large quotation with name/role attribution",
+    "summary": "Testimonial: square portrait beside a large quotation with name/role attribution"
+  },
+  "contentPattern": {
+    "structure": "Row 1: portrait image (optional). Row 2: quotation paragraph(s). Row 3: attribution, name (bold) and role (optional)",
+    "summary": "Row 1: portrait image (optional). Row 2: quotation paragraph(s). Row 3: attribution, name (bold) and role (optional)"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Testimonial (Alberto Fauste)",
+    "pagesUsing": [
+      "/landings/es-es/edu-der-pol-seg-emp-art-hum-mba-com-ing-dis-sal-soc-mus-idi-gen-mas-exu-prg-cur-ofi-tpr-noa-estes-donde-estes-unir-sitio/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-23"
+  },
+  "reuseGuidance": "Single testimonial with a portrait; multiple testimonials belong in a carousel.",
+  "sourceUrl": "https://estudiar.unir.net/landings/es_es/edu_der_pol_seg_emp_art_hum_mba_com_ing_dis_sal_soc_mus_idi-gen-mas_exu_prg_cur-ofi_tpr-noa-estes-donde-estes-unir-sitio/"
+}

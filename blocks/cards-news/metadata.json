@@ -12,7 +12,14 @@
   },
   "options": [],
   "memberVariantIds": [],
-  "usage": "Actualidad académica, Investigación, Compromiso social y cultural.",
+  "usage": {
+    "description": "Actualidad académica, Investigación, Compromiso social y cultural.",
+    "pagesUsing": [
+      "/landings/es-es/edu-der-pol-seg-emp-art-hum-mba-com-ing-dis-sal-soc-mus-idi-gen-mas-exu-prg-cur-ofi-tpr-noa-estes-donde-estes-unir-sitio/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-23"
+  },
   "reuseGuidance": "Default choice for article or initiative listings with an image and excerpt.",
   "sourceUrl": "https://www.unir.net/"
 }

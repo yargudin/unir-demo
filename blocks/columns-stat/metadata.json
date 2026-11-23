@@ -1,0 +1,25 @@
+{
+  "variantName": "columns-stat",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Text column beside a big stat figure with caption, separated by a vertical rule",
+    "summary": "Text column beside a big stat figure with caption, separated by a vertical rule"
+  },
+  "contentPattern": {
+    "structure": "One row. Cell 1: H2 + paragraph. Cell 2: stat value as a paragraph (e.g. +400, not a heading) + caption paragraph. The column whose first line is number-like becomes the stat column",
+    "summary": "One row. Cell 1: H2 + paragraph. Cell 2: stat value as a paragraph (e.g. +400, not a heading) + caption paragraph. The column whose first line is number-like becomes the stat column"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Highlighted data (+400 titulaciones), section style light-blue",
+    "pagesUsing": [
+      "/landings/es-es/edu-der-pol-seg-emp-art-hum-mba-com-ing-dis-sal-soc-mus-idi-gen-mas-exu-prg-cur-ofi-tpr-noa-estes-donde-estes-unir-sitio/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-23"
+  },
+  "reuseGuidance": "Use for one headline figure next to supporting text.",
+  "sourceUrl": "https://estudiar.unir.net/landings/es_es/edu_der_pol_seg_emp_art_hum_mba_com_ing_dis_sal_soc_mus_idi-gen-mas_exu_prg_cur-ofi_tpr-noa-estes-donde-estes-unir-sitio/"
+}

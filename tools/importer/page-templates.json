@@ -257,6 +257,207 @@
           "defaultContent": []
         }
       ]
+    },
+    {
+      "name": "landing",
+      "urls": [
+        "https://estudiar.unir.net/landings/es_es/edu_der_pol_seg_emp_art_hum_mba_com_ing_dis_sal_soc_mus_idi-gen-mas_exu_prg_cur-ofi_tpr-noa-estes-donde-estes-unir-sitio/"
+      ],
+      "representativeUrl": "https://estudiar.unir.net/landings/es_es/edu_der_pol_seg_emp_art_hum_mba_com_ing_dis_sal_soc_mus_idi-gen-mas_exu_prg_cur-ofi_tpr-noa-estes-donde-estes-unir-sitio/",
+      "description": "UNIR study landing page",
+      "blocks": [
+        {
+          "name": "hero-gradient",
+          "instances": [
+            "div.c-hero"
+          ]
+        },
+        {
+          "name": "accordion-programs",
+          "instances": [
+            "div.distributiveFilter div.c-filter"
+          ]
+        },
+        {
+          "name": "quote-portrait",
+          "instances": [
+            "div.c-testimonies-carousel"
+          ]
+        },
+        {
+          "name": "cards-icon-feature",
+          "instances": [
+            "section.m-card-block div.m-card-block__cards"
+          ]
+        },
+        {
+          "name": "columns-stat",
+          "instances": [
+            "div.c-highlighted-data"
+          ]
+        },
+        {
+          "name": "cards-recognition",
+          "instances": [
+            "section.c-recognitions div.c-recognitions__container > div.c-recognitions__grid"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            "div.c-sections main.c-sections__main"
+          ]
+        },
+        {
+          "name": "form",
+          "instances": [
+            "div.l-sidebar div.c-form"
+          ]
+        }
+      ],
+      "urlPattern": "/landings/es_es/*",
+      "sections": [
+        {
+          "id": "s1",
+          "name": "Hero",
+          "selector": [
+            "div.c-hero"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-gradient"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s2",
+          "name": "Tu postgrado donde, cuando y como tú quieras",
+          "selector": [
+            "div.c-textandmedia.c-textandmedia--right"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "div.c-textandmedia.c-textandmedia--right"
+          ]
+        },
+        {
+          "id": "s3",
+          "name": "Study areas accordion",
+          "selector": [
+            "div.distributiveFilter"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-programs"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s4",
+          "name": "Te lo ponemos fácil",
+          "selector": [
+            "div.aem-Grid--12 > div.c-textandmedia:nth-of-type(3)",
+            "#container-1d639a69c2 > div.aem-Grid.aem-Grid--12 > div.c-textandmedia:nth-of-type(3)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "div.aem-Grid--12 > div.c-textandmedia:nth-of-type(3)"
+          ]
+        },
+        {
+          "id": "s5",
+          "name": "Testimonial",
+          "selector": [
+            "div.c-testimonies-carousel"
+          ],
+          "style": null,
+          "blocks": [
+            "quote-portrait"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s6",
+          "name": "Trabajamos en tu mejora profesional",
+          "selector": [
+            "div.iconographic-carousel-target"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon-feature"
+          ],
+          "defaultContent": [
+            "section.m-card-block header.m-card-block__header"
+          ]
+        },
+        {
+          "id": "s7",
+          "name": "Salidas profesionales",
+          "selector": [
+            "div.aem-Grid--12 > div.c-textandmedia:nth-of-type(6)",
+            "#container-1d639a69c2 > div.aem-Grid.aem-Grid--12 > div.c-textandmedia:nth-of-type(6)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "div.aem-Grid--12 > div.c-textandmedia:nth-of-type(6)"
+          ]
+        },
+        {
+          "id": "s8",
+          "name": "Highlighted data",
+          "selector": [
+            "div.cmp-experiencefragment--datos-destacados"
+          ],
+          "style": "light-blue",
+          "blocks": [
+            "columns-stat"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s9",
+          "name": "UNIR, la universidad en línea nº1 del mundo en español",
+          "selector": [
+            "div.cmp-experiencefragment--la-universidad-en-linea-n-1"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "cards-recognition"
+          ],
+          "defaultContent": [
+            "section.c-recognitions header.c-recognitions__header"
+          ]
+        },
+        {
+          "id": "s10",
+          "name": "UNIR, entre la élite universitaria",
+          "selector": [
+            "div.cmp-experiencefragment--secciones"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": [
+            "div.c-sections header.c-sections__header"
+          ]
+        },
+        {
+          "id": "s11",
+          "name": "Lead form sidebar",
+          "selector": [
+            "div.l-sidebar div.c-form"
+          ],
+          "style": null,
+          "blocks": [
+            "form"
+          ],
+          "defaultContent": []
+        }
+      ]
     }
   ],
   "metadata": {

@@ -1,0 +1,146 @@
+/* landing sections get 32-40px padding and a white bg; the hero runs edge to edge */
+body.landing main > .section.hero-gradient-container {
+  padding: 0;
+  border: 0;
+}
+
+.hero-gradient-container .hero-gradient-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* source: .distributivepage .c-hero / .c-hero__container */
+.hero-gradient {
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  align-content: flex-end;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 206px;
+  padding: 0 16px;
+  overflow: hidden;
+  background-color: var(--brand-secondary);
+  color: #fff;
+  font-family: var(--landing-font-family, var(--body-font-family));
+}
+
+/* .c-hero__figure: photo fills the hero, anchored right/top, under a dark gradient */
+.hero-gradient .hero-gradient-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-gradient .hero-gradient-media picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-gradient .hero-gradient-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right top;
+}
+
+.hero-gradient .hero-gradient-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(248deg, transparent 36.67%, rgb(0 0 0) 103.47%);
+}
+
+/* .c-hero__content */
+.hero-gradient .hero-gradient-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  padding: 88px 0 16px;
+}
+
+.hero-gradient .hero-gradient-content > * {
+  margin: 0;
+}
+
+.hero-gradient .hero-gradient-content h1 {
+  color: #fff;
+  font-family: inherit;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34px;
+  letter-spacing: 0;
+}
+
+/* the distributive hero hides its subtitle and its mobile CTA at every width */
+.hero-gradient .hero-gradient-content h1 ~ p:not(.button-container),
+.hero-gradient .hero-gradient-content .button-container {
+  display: none;
+}
+
+/* .c-hero__cta--primary (kept styled in case the CTA is ever shown) */
+main .hero-gradient a.button:any-link {
+  width: 100%;
+  height: 52px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  color: #14171f;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+}
+
+main .hero-gradient a.button:any-link::before {
+  content: none;
+}
+
+@media (width >= 680px) {
+  .hero-gradient {
+    padding: 0 20px;
+  }
+
+  .hero-gradient .hero-gradient-media img {
+    min-height: 336px;
+  }
+
+  .hero-gradient .hero-gradient-content {
+    align-items: flex-start;
+    max-width: 57.4%;
+    padding-top: 92px;
+  }
+
+  .hero-gradient .hero-gradient-content h1 {
+    text-wrap: pretty;
+  }
+}
+
+@media (width >= 960px) {
+  .hero-gradient {
+    min-height: 280px;
+    padding: 0 32px;
+  }
+}
+
+@media (width >= 1280px) {
+  .hero-gradient .hero-gradient-content {
+    gap: 20px;
+    padding: 100px 0 48px;
+  }
+
+  .hero-gradient .hero-gradient-content h1 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}

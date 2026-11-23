@@ -1,0 +1,141 @@
+/* the source list sits flush in the content column: no section padding,
+   the rows carry their own 16/20/32px gutter */
+body.landing main > .section.accordion-programs-container {
+  padding: 0;
+}
+
+.accordion-programs {
+  --accordion-programs-gutter: 16px;
+  --accordion-programs-rule: rgb(0 0 0 / 10%);
+
+  padding: 8px 0;
+  border-top: 1px solid var(--accordion-programs-rule);
+  color: var(--landing-ink);
+}
+
+/* row: 16px vertical padding, a 1px rule inset by the gutter at the bottom */
+.accordion-programs .accordion-programs-item {
+  padding: 16px var(--accordion-programs-gutter) 17px;
+  background:
+    linear-gradient(var(--accordion-programs-rule), var(--accordion-programs-rule))
+    center bottom / calc(100% - 2 * var(--accordion-programs-gutter)) 1px no-repeat;
+}
+
+.accordion-programs .accordion-programs-item:last-child {
+  padding-bottom: 16px;
+  background: none;
+}
+
+.accordion-programs .accordion-programs-item-label {
+  position: relative;
+  display: block;
+  padding: 0 40px 0 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--landing-ink);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.accordion-programs .accordion-programs-item-label::-webkit-details-marker {
+  display: none;
+}
+
+/* plus icon: two 16x1 bars centred in a 40x40 box; the vertical bar hides when open */
+.accordion-programs .accordion-programs-item-label::before,
+.accordion-programs .accordion-programs-item-label::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 12px;
+  width: 16px;
+  height: 1px;
+  background-color: currentcolor;
+  transform: translateY(-0.5px);
+}
+
+.accordion-programs .accordion-programs-item-label::after {
+  transform: translateY(-0.5px) rotate(90deg);
+}
+
+.accordion-programs .accordion-programs-item[open] .accordion-programs-item-label::after {
+  display: none;
+}
+
+.accordion-programs .accordion-programs-item-body {
+  padding: 0 0 32px;
+}
+
+.accordion-programs .accordion-programs-item-body h3 {
+  margin: 0;
+  padding: 22px 0 16px;
+  color: var(--heading-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.accordion-programs .accordion-programs-item-body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* program link: 8px blue dot, 16px text indent, 12px between links */
+.accordion-programs .accordion-programs-link {
+  position: relative;
+  margin: 0;
+  padding: 12px 0 0 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.accordion-programs .accordion-programs-link:first-child {
+  padding-top: 0;
+}
+
+.accordion-programs .accordion-programs-link::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #0d61f2;
+}
+
+.accordion-programs .accordion-programs-link:first-child::before {
+  top: 6px;
+}
+
+.accordion-programs .accordion-programs-link a:any-link {
+  color: rgb(0 0 0 / 70%);
+  text-decoration: none;
+  transition: none;
+}
+
+.accordion-programs .accordion-programs-link a:hover {
+  color: var(--link-hover-color);
+}
+
+@media (width >= 680px) {
+  .accordion-programs {
+    --accordion-programs-gutter: 20px;
+
+    padding: 16px 0;
+  }
+}
+
+@media (width >= 960px) {
+  .accordion-programs {
+    --accordion-programs-gutter: 32px;
+
+    padding: 24px 0;
+  }
+
+  .accordion-programs .accordion-programs-item-body {
+    margin-top: 4px;
+  }
+}

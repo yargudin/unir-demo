@@ -1,0 +1,144 @@
+/* columns-stat: source div.c-highlighted-data (estudiar.unir.net landings).
+   Source breakpoints: 680px (grid + vertical divider), 960px (number overlap),
+   1280px (larger type and spacers). */
+
+/* section = .c-highlighted-data__container: 24px block padding (32px at 1280),
+   inline padding = grid margin (16/20/32), min-height 21.5rem, content centered */
+body.landing main > .section.columns-stat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 344px;
+  padding: 24px var(--landing-section-padding-x);
+}
+
+/* row = .c-highlighted-data__top */
+.columns-stat > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 48px 0;
+}
+
+.columns-stat > div > div {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+
+.columns-stat .columns-stat-text h2 {
+  margin: 0 0 16px;
+  color: var(--heading-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+.columns-stat .columns-stat-text p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+/* stat column: the 2px rgba(0 0 0 / 10%) divider (1px border on both sides of
+   a 0-width box in the source) sits one gap before it */
+.columns-stat .columns-stat-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 32px;
+  border-top: 2px solid var(--landing-divider);
+  text-align: right;
+}
+
+.columns-stat .columns-stat-figure p {
+  margin: 0;
+}
+
+.columns-stat .columns-stat-figure .columns-stat-value {
+  color: var(--heading-color);
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 120px;
+  letter-spacing: -2px;
+}
+
+.columns-stat .columns-stat-figure p:not(.columns-stat-value) {
+  color: var(--heading-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+@media (width >= 680px) {
+  .columns-stat > div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-around;
+    gap: 0 32px;
+  }
+
+  .columns-stat .columns-stat-text {
+    padding-right: 32px;
+  }
+
+  .columns-stat .columns-stat-figure {
+    align-self: stretch;
+    padding: 0 0 0 32px;
+    border-top: 0;
+    border-left: 2px solid var(--landing-divider);
+  }
+
+  .columns-stat .columns-stat-figure p:not(.columns-stat-value) {
+    width: min-content;
+    min-width: 246px;
+  }
+}
+
+@media (width >= 960px) {
+  .columns-stat .columns-stat-figure .columns-stat-value {
+    margin-bottom: -8px;
+  }
+}
+
+@media (width >= 1280px) {
+  body.landing main > .section.columns-stat-container {
+    padding-block: 32px;
+  }
+
+  .columns-stat > div {
+    gap: 0 40px;
+    padding: 56px 0;
+  }
+
+  .columns-stat .columns-stat-text h2 {
+    line-height: 34px;
+  }
+
+  .columns-stat .columns-stat-text {
+    padding-right: 40px;
+  }
+
+  .columns-stat .columns-stat-figure {
+    padding-left: 40px;
+  }
+
+  .columns-stat .columns-stat-figure .columns-stat-value {
+    font-size: 152px;
+    line-height: 152px;
+  }
+
+  .columns-stat .columns-stat-figure p:not(.columns-stat-value) {
+    min-width: 316px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

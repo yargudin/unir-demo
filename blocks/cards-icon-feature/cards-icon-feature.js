@@ -1,7 +1,8 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
-// icons drawn from the unir-icons font (see cards-icon-feature.css); no SVG exists for them
-const FONT_ICONS = ['professor', 'screen', 'mentor'];
+// icons drawn from an icon font (see cards-icon-feature.css); no SVG exists for them:
+// unir-icons on the home page, Phosphor on landings
+const FONT_ICONS = ['professor', 'screen', 'mentor', 'spinner', 'lightbulb', 'briefcase'];
 const ICON_TOKEN = /^:([a-z0-9-]+):$/i;
 
 /**
@@ -26,6 +27,90 @@ function decorateFontIcons(cell) {
       icon.setAttribute('aria-hidden', 'true');
     }
   });
+}
+
+function navButton(dir, label) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = `cards-icon-feature-nav-btn cards-icon-feature-nav-${dir}`;
+  button.setAttribute('aria-label', label);
+  return button;
+}
+
+/**
+ * Landing carousel: the card row scrolls horizontally (scroll snap) and, while it
+ * overflows, shows a progress bar (one segment per snap stop) and prev/next buttons.
+ * @param {Element} block
+ * @param {Element} list
+ */
+function decorateCarousel(block, list) {
+  const controls = document.createElement('div');
+  controls.className = 'cards-icon-feature-controls';
+  const progress = document.createElement('div');
+  progress.className = 'cards-icon-feature-progress';
+  const nav = document.createElement('div');
+  nav.className = 'cards-icon-feature-nav';
+  const prev = navButton('prev', 'Anterior');
+  const next = navButton('next', 'Siguiente');
+  const divider = document.createElement('span');
+  divider.className = 'cards-icon-feature-nav-divider';
+  nav.append(prev, divider, next);
+  controls.append(progress, nav);
+  block.append(controls);
+
+  let stops = [];
+  let current = 0;
+
+  const update = () => {
+    const pos = list.scrollLeft;
+    current = stops.reduce((best, stop, i) => (
+      Math.abs(stop - pos) < Math.abs(stops[best] - pos) ? i : best), 0);
+    [...progress.children].forEach((seg, i) => {
+      seg.classList.toggle('active', i === current);
+      seg.setAttribute('aria-current', i === current ? 'true' : 'false');
+    });
+    prev.disabled = current <= 0;
+    next.disabled = current >= stops.length - 1;
+  };
+
+  const goTo = (i) => {
+    const index = Math.max(0, Math.min(i, stops.length - 1));
+    list.scrollTo({ left: stops[index] });
+  };
+
+  const measure = () => {
+    const max = list.scrollWidth - list.clientWidth;
+    // snap stops are card offsets past the start padding (= scroll-padding)
+    const start = list.getBoundingClientRect().left + list.clientLeft - list.scrollLeft;
+    const padLeft = parseFloat(getComputedStyle(list).scrollPaddingLeft) || 0;
+    stops = [];
+    if (max > 1) {
+      [...list.children].forEach((li) => {
+        const stop = Math.min(Math.max(li.getBoundingClientRect().left - start - padLeft, 0), max);
+        if (!stops.some((s) => Math.abs(s - stop) < 2)) stops.push(stop);
+      });
+    }
+    block.classList.toggle('scrollable', stops.length > 1);
+    if (progress.children.length !== stops.length) {
+      progress.replaceChildren(...stops.map((_, i) => {
+        const seg = document.createElement('button');
+        seg.type = 'button';
+        seg.className = 'cards-icon-feature-progress-segment';
+        seg.setAttribute('aria-label', `Diapositiva ${i + 1} de ${stops.length}`);
+        return seg;
+      }));
+    }
+    update();
+  };
+
+  progress.addEventListener('click', (e) => {
+    const seg = e.target.closest('.cards-icon-feature-progress-segment');
+    if (seg) goTo([...progress.children].indexOf(seg));
+  });
+  prev.addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+  list.addEventListener('scroll', update, { passive: true });
+  new ResizeObserver(measure).observe(list);
 }
 
 /**
@@ -72,4 +157,6 @@ export default function decorate(block) {
     img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '160' }]));
   });
   block.replaceChildren(list);
+  // landings show the cards as a scrolling carousel; the home page keeps a static row
+  if (document.body.classList.contains('landing')) decorateCarousel(block, list);
 }
