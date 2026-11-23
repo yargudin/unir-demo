@@ -305,3 +305,10 @@
     display: flex;
   }
 }
+
+/* source slider shows 6 cards from 1600px: (viewport - left padding - 58px) / 6, minus 32px gap */
+@media (width >= 1600px) {
+  .cards-program-slider .cards-program-slider-card {
+    flex-basis: calc((100cqw + var(--content-padding) - 58px) / 6 - 32px);
+  }
+}

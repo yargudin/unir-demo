@@ -2,10 +2,10 @@
   "type": "da",
   "sites": {
     "unir-demo": {
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
       "previewOrg": "yargudin",
       "previewSite": "unir-demo",
       "contentHostUrl": "https://content.da.live/yargudin/unir-demo/",
-      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
       "botProtected": true
     }
   }
