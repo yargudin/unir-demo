@@ -5,16 +5,27 @@
   padding-bottom: 10px;
 }
 
-.cards-featured > ul {
+.cards-featured .cards-featured-grid {
+  --cards-featured-gap: 10px;
+
+  display: grid;
+  grid-template-columns: 100%;
+  gap: var(--cards-featured-gap);
+}
+
+/* a column: the lead card alone, or up to two text cards stacked */
+.cards-featured .cards-featured-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cards-featured-gap);
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 100%;
-  gap: 10px;
 }
 
 .cards-featured .cards-featured-card {
+  /* cards in a shorter column share the extra height equally */
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -71,6 +82,12 @@
   margin-bottom: 45px;
 }
 
+/* CTA row is exactly the link height (18px), like the source .card__footer */
+.cards-featured .cards-featured-card-cta {
+  display: flex;
+  line-height: 18px;
+}
+
 /* text cards keep the CTA on the card bottom when the card stretches */
 .cards-featured .cards-featured-card-text .cards-featured-card-cta {
   margin-top: auto;
@@ -114,8 +131,8 @@
     padding-bottom: 20px;
   }
 
-  .cards-featured > ul {
-    gap: 20px;
+  .cards-featured .cards-featured-grid {
+    --cards-featured-gap: 20px;
   }
 
   .cards-featured .cards-featured-card-image {
@@ -140,16 +157,10 @@
 }
 
 /* desktop: lead image card in the first column, text cards stacked
-   two per column in the next two columns (source switches at 1025px) */
-@media (width >= 1025px) {
-  .cards-featured > ul {
+   two per column in the next two columns (source shows 3 columns at 1024px) */
+@media (width >= 1024px) {
+  .cards-featured .cards-featured-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(2, auto);
-    grid-auto-flow: column;
-  }
-
-  .cards-featured .cards-featured-card-has-image {
-    grid-row: span 2;
   }
 
   .cards-featured .cards-featured-card-image {

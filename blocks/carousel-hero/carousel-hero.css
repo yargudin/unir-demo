@@ -293,3 +293,20 @@
     max-width: 848px;
   }
 }
+
+/* wide screens: text panel 55% / photo 45%, text aligned with the page container */
+@media (width >= 1600px) {
+  .carousel-hero .carousel-hero-slide-content {
+    flex-basis: 55%;
+    max-width: none;
+    padding-left: var(--content-padding);
+  }
+
+  .carousel-hero .carousel-hero-slide-image {
+    flex-basis: 45%;
+  }
+
+  .carousel-hero .carousel-hero-dots-nav {
+    padding-left: var(--content-padding);
+  }
+}

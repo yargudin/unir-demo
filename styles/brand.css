@@ -40,8 +40,9 @@
   --heading-font-size-s: 14px;
   --heading-font-size-xs: 12px;
 
-  /* spacing */
-  --content-max-width: 1440px;
+  /* spacing: the source container has no max width, only side padding
+     (2rem / 3.2rem / 8.2rem / 5.125vw / 12vw / 16vw, see breakpoints below) */
+  --content-max-width: none;
   --content-padding: 20px;
   --section-padding: 32px;
   --section-gap: 40px;
@@ -62,8 +63,28 @@
     --heading-font-size-m: 16px;
     --heading-font-size-s: 14px;
     --heading-font-size-xs: 12px;
-    --content-padding: 82px;
     --section-padding: 40px;
     --section-gap: 56px;
   }
+}
+
+/* container side padding, same breakpoints as the source .container */
+@media (width >= 768px) {
+  :root { --content-padding: 32px; }
+}
+
+@media (width >= 1280px) {
+  :root { --content-padding: 82px; }
+}
+
+@media (width >= 1600px) {
+  :root { --content-padding: 5.125vw; }
+}
+
+@media (width >= 1800px) {
+  :root { --content-padding: 12vw; }
+}
+
+@media (width >= 2100px) {
+  :root { --content-padding: 16vw; }
 }
