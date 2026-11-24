@@ -301,3 +301,281 @@ footer .footer .footer-copyright {
     padding: 0 82px;
   }
 }
+
+/* ---------- landing template (body.landing): source .c-footer of estudiar.unir.net
+   (breakpoints 680 / 960 / 1280 / 1600) ---------- */
+body.landing footer {
+  background-color: #052761;
+}
+
+body.landing footer .footer {
+  padding: 32px calc(var(--landing-inset) + 16px);
+  font-family: var(--landing-font-family);
+}
+
+body.landing footer .footer-landing a:any-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* contact row: logo + email / phone */
+body.landing footer .footer-landing-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+body.landing footer .footer-landing-logo {
+  display: block;
+  line-height: 0;
+}
+
+body.landing footer .footer .footer-landing-logo img {
+  width: 125px;
+  height: auto;
+}
+
+body.landing footer .footer-landing-info-wrap {
+  padding-bottom: 14px;
+}
+
+body.landing footer .footer-landing-info {
+  display: flex;
+  flex-direction: column;
+}
+
+body.landing footer .footer-landing-info-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+body.landing footer .footer .footer-landing-info-item a {
+  font-weight: 400;
+}
+
+body.landing footer .footer-landing-icon {
+  display: block;
+  padding-right: 12px;
+  font-family: Phosphor, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+body.landing footer .footer-landing-icon-envelope::before {
+  content: '\e214';
+}
+
+body.landing footer .footer-landing-icon-phone::before {
+  content: '\e3b8';
+}
+
+/* partner logos: endless marquee (track = 4 copies; one loop = half the track + half a gap) */
+body.landing footer .footer-landing-partners {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+body.landing footer .footer-landing-partners-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  padding: 12px 0;
+  animation: footer-landing-marquee 40s linear infinite;
+}
+
+body.landing footer .footer-landing-partner {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+body.landing footer .footer .footer-landing-partner img {
+  display: block;
+  width: 92px;
+  height: 92px;
+}
+
+@keyframes footer-landing-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 16px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.landing footer .footer-landing-partners-track {
+    animation: none;
+  }
+}
+
+/* legal band */
+body.landing footer .footer-landing-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 40px;
+}
+
+body.landing footer .footer-landing-legal-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+body.landing footer .footer-landing-legal-list li {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+body.landing footer .footer .footer-landing-legal-list a {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.landing footer .footer-landing-copyright-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+body.landing footer .footer-landing-copyright {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@media (width >= 680px) {
+  body.landing footer .footer {
+    padding-inline: calc(var(--landing-inset) + 20px);
+  }
+}
+
+@media (width >= 960px) {
+  body.landing footer .footer {
+    padding-inline: calc(var(--landing-inset) + 32px);
+  }
+
+  body.landing footer .footer-landing-contact {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  body.landing footer .footer-landing-info-wrap {
+    padding-bottom: 24px;
+  }
+
+  body.landing footer .footer-landing-info {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  body.landing footer .footer-landing-info-item {
+    height: 44px;
+    margin: 6px 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  body.landing footer .footer-landing-info-item:not(:last-child) {
+    border-right: 1px solid rgb(255 255 255 / 20%);
+  }
+
+  body.landing footer .footer-landing-partners {
+    margin-top: 72px;
+  }
+
+  body.landing footer .footer-landing-legal {
+    align-items: baseline;
+  }
+
+  body.landing footer .footer-landing-legal-list {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  body.landing footer .footer-landing-copyright-wrap {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* desktop: the footer spans the content column; the grey form sidebar continues beside it */
+@media (width >= 1280px) {
+  body.landing footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--landing-sidebar-width);
+    column-gap: 6px;
+    background-color: var(--background-color);
+  }
+
+  body.landing footer::after {
+    content: '';
+    background-color: var(--landing-sidebar-bg);
+  }
+
+  body.landing footer > .footer {
+    background-color: #052761;
+  }
+
+  body.landing footer .footer {
+    padding-block: 40px;
+  }
+
+  body.landing footer .footer-landing-contact {
+    gap: 48px;
+  }
+
+  body.landing footer .footer-landing-info-item {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  body.landing footer .footer-landing-partners {
+    margin-top: 80px;
+  }
+
+  body.landing footer .footer-landing-partners-track {
+    padding: 16px 0;
+  }
+
+  body.landing footer .footer-landing-legal {
+    gap: 48px;
+    padding-top: 48px;
+  }
+
+  body.landing footer .footer-landing-legal-list {
+    gap: 16px;
+  }
+
+  body.landing footer .footer-landing-copyright-wrap {
+    gap: 24px;
+  }
+}
+
+/* wide screens: legal links and copyright share one row */
+@media (width >= 1920px) {
+  body.landing footer .footer-landing-legal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

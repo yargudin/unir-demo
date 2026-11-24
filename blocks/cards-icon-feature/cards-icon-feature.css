@@ -372,3 +372,10 @@ body.landing .cards-icon-feature .cards-icon-feature-nav-btn:active:not(:disable
     scroll-padding-inline: 0;
   }
 }
+
+/* wide screens: the three cards share the (wider) capped container, no 308px cap */
+@media (width >= 1600px) {
+  body.landing .cards-icon-feature .cards-icon-feature-card {
+    max-width: none;
+  }
+}

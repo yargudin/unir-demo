@@ -605,3 +605,75 @@ header .nav-backdrop {
     height: 8px;
   }
 }
+
+/* ---------- landing template (body.landing): logo-only header overlaid on the hero
+   (source .c-header--logo-title, breakpoints 680 / 960 / 1280 / 1600) ---------- */
+body.landing header {
+  position: relative;
+  z-index: 10;
+  height: 0;
+}
+
+body.landing header .nav-landing {
+  position: absolute;
+  inset: 0 auto auto 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 21px 16px 0;
+  pointer-events: none;
+}
+
+body.landing header .nav-landing-bar {
+  display: flex;
+  align-items: center;
+}
+
+body.landing header .nav-landing-logo {
+  display: block;
+  line-height: 0;
+  pointer-events: auto;
+}
+
+body.landing header img.nav-landing-logo,
+body.landing header .nav-landing-logo img {
+  display: block;
+  width: auto;
+  height: 24px;
+}
+
+@media (width >= 680px) {
+  body.landing header .nav-landing {
+    padding: 21px 20px 0;
+  }
+
+  body.landing header img.nav-landing-logo,
+  body.landing header .nav-landing-logo img {
+    height: 32px;
+  }
+}
+
+@media (width >= 960px) {
+  body.landing header .nav-landing {
+    padding: 21px 32px 0;
+  }
+}
+
+/* desktop: the header spans the content column only (the form sidebar sits beside it) */
+@media (width >= 1280px) {
+  body.landing header .nav-landing {
+    width: calc(100% - var(--landing-sidebar-width) - 6px);
+    padding: 16px 32px;
+  }
+
+  body.landing header img.nav-landing-logo,
+  body.landing header .nav-landing-logo img {
+    height: 28px;
+  }
+}
+
+@media (width >= 1600px) {
+  /* % here is the full header width: inset = (content column - cap) / 2 */
+  body.landing header .nav-landing {
+    padding-inline: calc(max(0px, (100% - var(--landing-sidebar-width) - 6px - var(--landing-max)) / 2) + 32px);
+  }
+}

@@ -144,3 +144,10 @@ main .hero-gradient a.button:any-link::before {
     line-height: 36px;
   }
 }
+
+/* wide screens: the source hero container is capped (1016/1280) and centred */
+@media (width >= 1600px) {
+  .hero-gradient {
+    padding-inline: calc(var(--landing-inset, 0px) + 32px);
+  }
+}

@@ -242,7 +242,107 @@ function buildBottomBand(section) {
  * loads and decorates the footer
  * @param {Element} block The footer block element
  */
+/* landing footer: icon per contact link scheme (Phosphor glyphs set in CSS) */
+const LANDING_CONTACT_ICONS = { mailto: 'envelope', tel: 'phone' };
+/* the partner logos repeat so the marquee track is always wider than the viewport */
+const LANDING_PARTNER_COPIES = 4;
+
+function landingEl(tag, className, children = []) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  children.forEach((child) => child && node.append(child));
+  return node;
+}
+
+function buildLandingContact(section) {
+  const contact = landingEl('div', 'footer-landing-contact');
+  const logo = section.querySelector('img');
+  if (logo) contact.append(landingEl('span', 'footer-landing-logo', [logo.closest('a') || logo]));
+  const list = section.querySelector('ul');
+  if (list) {
+    list.className = 'footer-landing-info';
+    [...list.children].forEach((li) => {
+      li.className = 'footer-landing-info-item';
+      const link = li.querySelector('a[href]');
+      const scheme = link ? link.getAttribute('href').split(':')[0].toLowerCase() : '';
+      const icon = LANDING_CONTACT_ICONS[scheme];
+      if (icon) {
+        const glyph = landingEl('span', `footer-landing-icon footer-landing-icon-${icon}`);
+        glyph.setAttribute('aria-hidden', 'true');
+        li.prepend(glyph);
+      }
+    });
+    contact.append(landingEl('div', 'footer-landing-info-wrap', [list]));
+  }
+  return contact;
+}
+
+function buildLandingPartners(section) {
+  const logos = [...section.querySelectorAll('img')];
+  if (!logos.length) return null;
+  const track = landingEl('ul', 'footer-landing-partners-track');
+  for (let copy = 0; copy < LANDING_PARTNER_COPIES; copy += 1) {
+    logos.forEach((img) => {
+      const logo = copy ? img.cloneNode(true) : img;
+      const li = landingEl('li', 'footer-landing-partner', [logo]);
+      // repeated copies only feed the marquee: keep them out of the accessibility tree
+      if (copy) {
+        li.setAttribute('aria-hidden', 'true');
+        logo.alt = '';
+      }
+      track.append(li);
+    });
+  }
+  return landingEl('div', 'footer-landing-partners', [track]);
+}
+
+function buildLandingLegal(section) {
+  const legal = landingEl('div', 'footer-landing-legal');
+  const list = section.querySelector('ul');
+  if (list) {
+    list.className = 'footer-landing-legal-list';
+    legal.append(list);
+  }
+  const copyright = [...section.querySelectorAll('p')].find((p) => p.textContent.trim());
+  if (copyright) {
+    const small = landingEl('small', 'footer-landing-copyright');
+    small.append(...copyright.childNodes);
+    legal.append(landingEl('div', 'footer-landing-copyright-wrap', [small]));
+  }
+  return legal;
+}
+
+/**
+ * Landing template footer (body.landing): its own fragment (/landings/footer) with
+ * contact row, partner-logo marquee and legal band. Fixed dual-fetch, local first.
+ * @param {Element} block footer block
+ */
+async function decorateLandingFooter(block) {
+  let resp = await fetch('/content/landings/footer.plain.html');
+  if (!resp.ok) resp = await fetch('/landings/footer.plain.html');
+  if (!resp.ok) return;
+  const doc = new DOMParser().parseFromString(await resp.text(), 'text/html');
+  rebaseMedia(doc.body, resp.url);
+  const [contactSection, partnersSection, legalSection] = [...doc.body.children]
+    .filter((node) => node.tagName === 'DIV');
+
+  const container = landingEl('div', 'footer-landing');
+  const above = landingEl('div', 'footer-landing-above');
+  if (contactSection) above.append(buildLandingContact(contactSection));
+  const partners = partnersSection && buildLandingPartners(partnersSection);
+  if (partners) above.append(partners);
+  container.append(above);
+  if (legalSection) container.append(buildLandingLegal(legalSection));
+
+  block.textContent = '';
+  block.append(container);
+}
+
 export default async function decorate(block) {
+  if (document.body.classList.contains('landing')) {
+    await decorateLandingFooter(block);
+    return;
+  }
   const fragment = await fetchFooterFragment();
   if (!fragment) return;
   const { body, base } = fragment;

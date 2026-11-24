@@ -82,6 +82,12 @@ body.landing {
   --landing-flow-gap: 20px;
   --landing-list-gap: 12px;
   --landing-sidebar-width: calc(25% - 4px);
+
+  /* wide screens: the source caps each section's inner container (padding included)
+     at 1016px (1600) / 1280px (1920), centred in the content column; --landing-inset is
+     the extra side space, resolved against the element it is used on */
+  --landing-max: 100000px;
+  --landing-inset: max(0px, calc((100% - var(--landing-max)) / 2));
   --body-font-family: var(--landing-font-family);
   --heading-font-family: var(--landing-font-family);
   --background-color: #f2f5f7;
@@ -114,5 +120,18 @@ body.landing {
     --landing-flow-gap: 24px;
     --landing-list-gap: 16px;
     --heading-font-size-xl: 28px;
+  }
+}
+
+@media (width >= 1600px) {
+  body.landing {
+    --landing-max: 1016px;
+  }
+}
+
+@media (width >= 1920px) {
+  body.landing {
+    --landing-max: 1280px;
+    --landing-sidebar-width: 478px;
   }
 }

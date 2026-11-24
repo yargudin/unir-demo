@@ -1,7 +1,7 @@
 /* the source list sits flush in the content column: no section padding,
    the rows carry their own 16/20/32px gutter */
 body.landing main > .section.accordion-programs-container {
-  padding: 0;
+  padding: 0 var(--landing-inset, 0);
 }
 
 .accordion-programs {

@@ -10,7 +10,7 @@ body.landing main > .section.columns-stat-container {
   justify-content: center;
   box-sizing: border-box;
   min-height: 344px;
-  padding: 24px var(--landing-section-padding-x);
+  padding: 24px calc(var(--landing-inset, 0px) + var(--landing-section-padding-x));
 }
 
 /* row = .c-highlighted-data__top */

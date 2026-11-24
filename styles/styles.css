@@ -388,7 +388,7 @@ body.landing {
 
 body.landing main > .section {
   margin: 0;
-  padding: var(--landing-section-padding-y) var(--landing-section-padding-x);
+  padding: var(--landing-section-padding-y) calc(var(--landing-inset) + var(--landing-section-padding-x));
   background-color: #fff;
 }
 
@@ -424,7 +424,7 @@ body.landing main > .section.cards-icon-feature-container {
 
 @media (width >= 1280px) {
   body.landing main > .section.cards-icon-feature-container {
-    padding: 80px calc(48px + var(--landing-section-padding-x));
+    padding: 80px calc(max(48px, var(--landing-inset)) + var(--landing-section-padding-x));
   }
 }
 

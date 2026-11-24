@@ -289,7 +289,41 @@ function toggleMobileMenu(wrapper, force) {
  * loads and decorates the header
  * @param {Element} block The header block element
  */
+/**
+ * Landing template header (body.landing): its own logo-only fragment
+ * (/landings/nav), overlaid on the hero. Fixed dual-fetch, local first.
+ * @param {Element} block header block
+ */
+async function decorateLandingHeader(block) {
+  let resp = await fetch('/content/landings/nav.plain.html');
+  let base = '/content/landings/';
+  if (!resp.ok) {
+    resp = await fetch('/landings/nav.plain.html');
+    base = '/landings/';
+  }
+  if (!resp.ok) return;
+  const sections = parseNav(await resp.text(), base);
+  const bar = el('div', 'nav-landing-bar');
+  const img = sections.length ? sections[0].querySelector('img') : null;
+  if (img) {
+    const link = img.closest('a');
+    const logo = link || img;
+    logo.classList.add('nav-landing-logo');
+    if (link && !link.getAttribute('aria-label')) link.setAttribute('aria-label', img.alt || 'Inicio');
+    bar.append(logo);
+  }
+  const nav = el('nav', 'nav-landing', [bar]);
+  nav.id = 'nav';
+  nav.setAttribute('aria-label', 'Principal');
+  block.textContent = '';
+  block.append(nav);
+}
+
 export default async function decorate(block) {
+  if (document.body.classList.contains('landing')) {
+    await decorateLandingHeader(block);
+    return;
+  }
   const fragment = await fetchNav();
   if (!fragment) return;
   const sections = parseNav(fragment.html, fragment.base);
