@@ -68,6 +68,27 @@
   }
 }
 
+/* container side padding, same breakpoints as the source .container */
+@media (width >= 768px) {
+  :root { --content-padding: 32px; }
+}
+
+@media (width >= 1280px) {
+  :root { --content-padding: 82px; }
+}
+
+@media (width >= 1600px) {
+  :root { --content-padding: 5.125vw; }
+}
+
+@media (width >= 1800px) {
+  :root { --content-padding: 12vw; }
+}
+
+@media (width >= 2100px) {
+  :root { --content-padding: 16vw; }
+}
+
 /* Landing template (estudiar.unir.net landings): its own design system, scoped to
    body.landing (page metadata "Template: landing") so the home page is unaffected */
 body.landing {
