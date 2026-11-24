@@ -36,7 +36,79 @@ function iconName(item, title) {
   return KNOWN_ICONS[title.toLowerCase()] || '';
 }
 
+/*
+ * Landing branch (estudiar.unir.net, AEM): section.m-card-block
+ * div.m-card-block__cards with div.m-card-block__card-item units. Each item
+ * has a font icon <i><span class="icon icon-Spinner"></span></i> and a
+ * description paragraph (no title). The empty icon elements are dropped by
+ * the importer before parsers run, so the icon name is read from (1) the
+ * span class, (2) a data-icon attribute a preprocess hook may set, (3) a known
+ * text -> icon map for the landing. Output rows: :icon-name: | text.
+ */
+const LANDING_ICONS = {
+  'aprendes con contenidos actualizados': 'spinner',
+  'desarrollas destrezas profesionales': 'lightbulb',
+  'cuentas con 4.700 empresas con convenios de prácticas': 'briefcase',
+};
+
+function isLanding(element) {
+  return element.classList.contains('m-card-block__cards')
+    || !!element.querySelector(':scope > .m-card-block__card-item');
+}
+
+function landingIconName(item, text) {
+  const span = item.querySelector('.icon[class*="icon-"]');
+  if (span) {
+    const cls = [...span.classList].find((c) => c.startsWith('icon-') && c !== 'icon');
+    if (cls) return cls.replace('icon-', '').toLowerCase();
+  }
+  const holder = item.hasAttribute('data-icon') ? item : item.querySelector('[data-icon]');
+  if (holder) return holder.getAttribute('data-icon').replace(/^icon-/, '').toLowerCase();
+  return LANDING_ICONS[text.toLowerCase()] || '';
+}
+
+function parseLanding(element, document) {
+  const cells = [];
+  let items = [...element.querySelectorAll(':scope > .m-card-block__card-item')];
+  if (!items.length) items = [...element.querySelectorAll('.c-iconographic-card, article.c-card__content')];
+
+  items.forEach((item) => {
+    const body = [];
+    const titleEl = item.querySelector('.c-card__title, h2, h3, h4');
+    const title = cleanText(titleEl);
+    if (title) {
+      const h3 = document.createElement('h3');
+      h3.textContent = title;
+      body.push(h3);
+    }
+    const textRoot = item.querySelector('.c-card__description-text') || item.querySelector('.c-card__text') || item;
+    let paras = [...textRoot.querySelectorAll('p')].map(cleanText).filter(Boolean);
+    if (!paras.length && !title) paras = [cleanText(textRoot)].filter(Boolean);
+    paras.forEach((text) => {
+      const p = document.createElement('p');
+      p.textContent = text;
+      body.push(p);
+    });
+
+    const icon = landingIconName(item, paras[0] || title || '');
+    let iconCell = '';
+    if (icon) {
+      iconCell = document.createElement('p');
+      iconCell.textContent = `:${icon}:`;
+    }
+    if (!body.length && !iconCell) return;
+    cells.push([iconCell, body.length ? body : '']);
+  });
+
+  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-icon-feature', cells });
+  element.replaceWith(block);
+}
+
 export default function parse(element, { document, params }) {
+  if (isLanding(element)) {
+    parseLanding(element, document);
+    return;
+  }
   const cells = [];
   let items = [...element.querySelectorAll(':scope > .panel-icons__item')];
   if (!items.length) items = [...element.querySelectorAll('article')];

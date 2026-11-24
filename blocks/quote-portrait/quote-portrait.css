@@ -1,0 +1,172 @@
+/* quote-portrait: source .c-testimonies-carousel (single slide) */
+
+/* section frame: source component has a 1px divider on top and
+   container padding 40/16 -> 40/80 (680) -> 112 (1024) -> 132 (1280) */
+body.landing main > .section.quote-portrait-container {
+  padding: 40px 16px;
+  border-top: 1px solid var(--landing-divider);
+}
+
+.quote-portrait {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px 0;
+  min-height: 208px;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* source img is inline, leaving a 4px baseline gap under it on mobile;
+   reproduced explicitly so it does not depend on the document mode */
+.quote-portrait .quote-portrait-image {
+  overflow: hidden;
+  padding-bottom: 4px;
+  border-radius: 12px;
+}
+
+.quote-portrait .quote-portrait-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.6 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.quote-portrait .quote-portrait-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+
+.quote-portrait .quote-portrait-quotation {
+  margin: 0;
+}
+
+.quote-portrait .quote-portrait-quotation p {
+  margin: 0;
+  color: var(--heading-color);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.quote-portrait .quote-portrait-attribution,
+.quote-portrait .quote-portrait-attribution p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.quote-portrait .quote-portrait-quotation p + p {
+  margin-top: 16px;
+}
+
+/* mobile: name and role on their own 24px lines (20px text, 2px above/below) */
+.quote-portrait .quote-portrait-attribution strong,
+.quote-portrait .quote-portrait-role {
+  display: block;
+  padding: 2px 0;
+}
+
+.quote-portrait .quote-portrait-attribution strong {
+  color: var(--heading-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.quote-portrait .quote-portrait-role {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@media (width >= 680px) {
+  body.landing main > .section.quote-portrait-container {
+    padding: 40px 80px;
+  }
+
+  .quote-portrait.has-image {
+    grid-template-columns: 126px minmax(0, 1fr);
+    gap: 0 64px;
+  }
+
+  .quote-portrait .quote-portrait-image {
+    align-self: start;
+    width: 110px;
+    height: 110px;
+    margin-right: 16px;
+    padding-bottom: 0;
+  }
+
+  .quote-portrait .quote-portrait-image picture,
+  .quote-portrait .quote-portrait-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .quote-portrait .quote-portrait-image img {
+    aspect-ratio: auto;
+  }
+
+  .quote-portrait .quote-portrait-body {
+    align-self: start;
+  }
+
+  .quote-portrait .quote-portrait-attribution strong,
+  .quote-portrait .quote-portrait-role {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 0;
+  }
+}
+
+@media (width >= 1024px) {
+  body.landing main > .section.quote-portrait-container {
+    padding: 112px;
+  }
+
+  .quote-portrait.has-image {
+    grid-template-columns: 166px minmax(0, 1fr);
+    column-gap: 80px;
+  }
+
+  .quote-portrait .quote-portrait-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (width >= 1280px) {
+  body.landing main > .section.quote-portrait-container {
+    padding: 132px;
+  }
+
+  .quote-portrait.has-image {
+    grid-template-columns: 208px minmax(0, 1fr);
+    column-gap: 112px;
+  }
+
+  .quote-portrait .quote-portrait-image {
+    width: 192px;
+    height: 192px;
+  }
+
+  .quote-portrait .quote-portrait-body {
+    gap: 20px;
+  }
+
+  .quote-portrait .quote-portrait-quotation p {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .quote-portrait .quote-portrait-attribution strong {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

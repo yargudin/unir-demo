@@ -1,0 +1,25 @@
+{
+  "variantName": "accordion-programs",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Accordion of study areas with plus-icon rows and ruled dividers; each panel holds grouped program link lists",
+    "summary": "Accordion of study areas with plus-icon rows and ruled dividers; each panel holds grouped program link lists"
+  },
+  "contentPattern": {
+    "structure": "One row per area. Cell 1: area name (e.g. Educación). Cell 2: H3 study-type subheadings, each followed by a list of program links (pretitle + title, linked). Missing cell 2 renders an empty panel",
+    "summary": "One row per area. Cell 1: area name (e.g. Educación). Cell 2: H3 study-type subheadings, each followed by a list of program links (pretitle + title, linked). Missing cell 2 renders an empty panel"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Study areas accordion (15 areas)",
+    "pagesUsing": [
+      "/landings/es-es/edu-der-pol-seg-emp-art-hum-mba-com-ing-dis-sal-soc-mus-idi-gen-mas-exu-prg-cur-ofi-tpr-noa-estes-donde-estes-unir-sitio/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-23"
+  },
+  "reuseGuidance": "Use for long, grouped link directories that should stay collapsed; for FAQ-style text use a plain accordion.",
+  "sourceUrl": "https://estudiar.unir.net/landings/es_es/edu_der_pol_seg_emp_art_hum_mba_com_ing_dis_sal_soc_mus_idi-gen-mas_exu_prg_cur-ofi_tpr-noa-estes-donde-estes-unir-sitio/"
+}

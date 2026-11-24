@@ -47,3 +47,53 @@
   font-display: block;
   src: url('../fonts/unir-icons.woff2') format('woff2');
 }
+
+/* Proeduca Sans – typeface of the estudiar.unir.net landings (self-hosted from the source site) */
+@font-face {
+  font-family: 'Proeduca Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/proeduca-sans-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proeduca Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/proeduca-sans-medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proeduca Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/proeduca-sans-semibold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proeduca Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/proeduca-sans-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Proeduca Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/proeduca-sans-extrabold.otf') format('opentype');
+}
+
+/* Phosphor icon font (landing icons: spinner, lightbulb, briefcase, form highlights) */
+@font-face {
+  font-family: Phosphor;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../fonts/phosphor.woff2') format('woff2');
+}

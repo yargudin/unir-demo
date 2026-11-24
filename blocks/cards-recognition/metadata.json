@@ -1,0 +1,25 @@
+{
+  "variantName": "cards-recognition",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "2x2 boxed cards with a ranking/press logo and a paragraph; no title, no link",
+    "summary": "2x2 boxed cards with a ranking/press logo and a paragraph; no title, no link"
+  },
+  "contentPattern": {
+    "structure": "One row per card. Cell 1: logo image or icon. Cell 2: description paragraph, optional heading and CTA. Empty cells are dropped",
+    "summary": "One row per card. Cell 1: logo image or icon. Cell 2: description paragraph, optional heading and CTA. Empty cells are dropped"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "UNIR, la universidad en línea nº1 del mundo en español (section style light-grey)",
+    "pagesUsing": [
+      "/landings/es-es/edu-der-pol-seg-emp-art-hum-mba-com-ing-dis-sal-soc-mus-idi-gen-mas-exu-prg-cur-ofi-tpr-noa-estes-donde-estes-unir-sitio/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-23"
+  },
+  "reuseGuidance": "Use for award, ranking or press-recognition logos with a short explanation.",
+  "sourceUrl": "https://estudiar.unir.net/landings/es_es/edu_der_pol_seg_emp_art_hum_mba_com_ing_dis_sal_soc_mus_idi-gen-mas_exu_prg_cur-ofi_tpr-noa-estes-donde-estes-unir-sitio/"
+}

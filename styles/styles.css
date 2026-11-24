@@ -377,3 +377,162 @@ main .section.dark h3,
 main .section.dark h4 {
   color: #fff;
 }
+
+/* ---------- landing template (body.landing) ---------- */
+
+/* stacked white sections with a hairline between them; text panels use the
+   source .c-textandmedia__container padding (32/16 -> 32/20 -> 32 -> 40/32) */
+body.landing {
+  color: var(--landing-ink);
+}
+
+body.landing main > .section {
+  margin: 0;
+  padding: var(--landing-section-padding-y) var(--landing-section-padding-x);
+  background-color: #fff;
+}
+
+body.landing main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+
+/* default-content sections (no block) are separated by a 1px divider */
+body.landing main > .section:not([class*='-container']) {
+  border-top: 1px solid var(--landing-divider);
+}
+
+body.landing main > .section.light-grey {
+  background-color: var(--light-color);
+}
+
+body.landing main > .section.light-blue {
+  background-color: var(--landing-light-blue);
+}
+
+/* icon-card carousel section (source section.m-card-block): section padding
+   64/16 -> 64/32 (600) -> 80/48 (1280) plus the 16/20/32 content padding */
+body.landing main > .section.cards-icon-feature-container {
+  padding: 64px 32px;
+}
+
+@media (width >= 600px) {
+  body.landing main > .section.cards-icon-feature-container {
+    padding: 64px calc(32px + var(--landing-section-padding-x));
+  }
+}
+
+@media (width >= 1280px) {
+  body.landing main > .section.cards-icon-feature-container {
+    padding: 80px calc(48px + var(--landing-section-padding-x));
+  }
+}
+
+/* news-card section (source div.c-sections): 1px top divider, padding 32/x/64 -> 40/32/72
+   (1280), header-to-cards gap 48px -> 56px (1280) */
+body.landing main > .section.cards-news-container {
+  padding-bottom: 64px;
+  border-top: 1px solid var(--landing-divider);
+}
+
+body.landing main > .section.cards-news-container > .default-content-wrapper + .cards-news-wrapper {
+  margin-top: 48px;
+}
+
+@media (width >= 1280px) {
+  body.landing main > .section.cards-news-container {
+    padding-bottom: 72px;
+  }
+
+  body.landing main > .section.cards-news-container > .default-content-wrapper + .cards-news-wrapper {
+    margin-top: 56px;
+  }
+}
+
+/* lead-form section (source .l-sidebar): grey, edge to edge; the form block sets its own gutters */
+body.landing main > .section.form-container {
+  padding: 0;
+  border: 0;
+  background-color: var(--landing-sidebar-bg);
+}
+
+/* default content: flex column rhythm of the source (24px between items, 16px between list items) */
+body.landing main .default-content-wrapper > * {
+  margin: 0 0 var(--landing-flow-gap);
+}
+
+body.landing main .default-content-wrapper > :last-child {
+  margin-bottom: 0;
+}
+
+body.landing main .default-content-wrapper h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: normal;
+}
+
+body.landing main .default-content-wrapper p,
+body.landing main .default-content-wrapper li {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.landing main .default-content-wrapper strong {
+  font-weight: 600;
+}
+
+body.landing main .default-content-wrapper ul {
+  padding-left: 16px;
+}
+
+body.landing main .default-content-wrapper li {
+  padding-left: 6px;
+}
+
+body.landing main .default-content-wrapper li + li {
+  margin-top: var(--landing-list-gap);
+}
+
+/* eyebrow: an h3 right before the h2 ("Salidas Profesionales") */
+body.landing main .default-content-wrapper h3:has(+ h2) {
+  margin-bottom: var(--landing-flow-gap);
+  color: var(--landing-muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (width >= 1280px) {
+  body.landing main .default-content-wrapper h2 {
+    line-height: 34px;
+  }
+
+  /* two columns: content (75%) and the sticky lead-form sidebar, 6px apart */
+  body.landing main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--landing-sidebar-width);
+    column-gap: 6px;
+    align-items: start;
+  }
+
+  body.landing main > .section {
+    grid-column: 1;
+  }
+
+  body.landing main > .section.form-container {
+    grid-column: 2;
+    grid-row: 1 / span 30;
+    align-self: stretch;
+  }
+
+  body.landing main > .section.form-container > .form-wrapper {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}

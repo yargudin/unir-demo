@@ -12,7 +12,14 @@
   },
   "options": [],
   "memberVariantIds": [],
-  "usage": "Value proposition icons (Docencia 100% online, Clases en directo, Mentor).",
+  "usage": {
+    "description": "Value proposition icons (Docencia 100% online, Clases en directo, Mentor).",
+    "pagesUsing": [
+      "/landings/es-es/edu-der-pol-seg-emp-art-hum-mba-com-ing-dis-sal-soc-mus-idi-gen-mas-exu-prg-cur-ofi-tpr-noa-estes-donde-estes-unir-sitio/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-23"
+  },
   "reuseGuidance": "Use for 3 to 4 short icon features. Not for photo cards.",
   "sourceUrl": "https://www.unir.net/"
 }

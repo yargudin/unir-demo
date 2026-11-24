@@ -63,7 +63,72 @@ function linkHref(a) {
   return encoded ? decodeBase64(encoded) : '';
 }
 
+/*
+ * Landing branch (estudiar.unir.net, AEM): div.c-sections main.c-sections__main
+ * with <article> > .c-sections__item units: image in .c-sections__item-image,
+ * h4.c-sections__item-title (no link in the source) and .c-sections__item-text
+ * paragraphs (inline <b>/<i> kept, &nbsp;-only spacer paragraphs dropped).
+ * Output rows: image | H3 title + text paragraphs.
+ */
+function isLanding(element) {
+  return element.classList.contains('c-sections__main')
+    || !!element.querySelector(':scope > article > .c-sections__item');
+}
+
+function parseLanding(element, document) {
+  const cells = [];
+  let items = [...element.querySelectorAll(':scope > article')];
+  if (!items.length) items = [...element.querySelectorAll('.c-sections__item')];
+
+  items.forEach((item) => {
+    const imageScope = item.querySelector('.c-sections__item-image') || item;
+    const img = imageFrom(imageScope, document);
+    const body = [];
+
+    const titleEl = item.querySelector('.c-sections__item-title, h2, h3, h4');
+    const title = cleanText(titleEl);
+    if (title) {
+      const href = linkHref(titleEl.querySelector('a') || item.querySelector('.c-sections__item-header a'));
+      const h3 = document.createElement('h3');
+      if (href) {
+        const a = document.createElement('a');
+        a.href = absUrl(href, document);
+        a.textContent = title;
+        h3.append(a);
+      } else {
+        h3.textContent = title;
+      }
+      body.push(h3);
+    }
+
+    const textRoot = item.querySelector('.c-sections__item-text');
+    if (textRoot) {
+      const paras = [...textRoot.querySelectorAll('p')];
+      if (paras.length) {
+        paras.forEach((p) => {
+          if (!p.textContent.replace(/\u00a0/g, ' ').trim()) return;
+          body.push(p);
+        });
+      } else if (cleanText(textRoot)) {
+        const p = document.createElement('p');
+        p.textContent = cleanText(textRoot);
+        body.push(p);
+      }
+    }
+
+    if (!img && !body.length) return;
+    cells.push([img || '', body.length ? body : '']);
+  });
+
+  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-news', cells });
+  element.replaceWith(block);
+}
+
 export default function parse(element, { document, params }) {
+  if (isLanding(element)) {
+    parseLanding(element, document);
+    return;
+  }
   const cells = [];
   let items = [...element.querySelectorAll(':scope > .card__item')];
   if (!items.length) items = [...element.querySelectorAll('article.card__item, section.card__item')];

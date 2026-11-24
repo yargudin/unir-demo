@@ -1,0 +1,25 @@
+{
+  "variantName": "form",
+  "baseBlock": "form",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Lead-generation contact form (Solicita información) rendered from authored field rows; no external submission unless an endpoint is authored",
+    "summary": "Lead-generation contact form (Solicita información) rendered from authored field rows; no external submission unless an endpoint is authored"
+  },
+  "contentPattern": {
+    "structure": "One row per field: Label (append * for required) | Type (text, email, tel, number, date, textarea, select, radio, checkbox, consent, hidden, heading, info, submit, success, action) | Options (select/radio list) or placeholder | Required (yes). Row type \"action\" holds the POST endpoint link; \"success\" holds the thank-you message. Alternatively a single-cell row linking a .json sheet (Name, Label, Type, Options, Mandatory, Placeholder)",
+    "summary": "One row per field: Label (append * for required) | Type (text, email, tel, number, date, textarea, select, radio, checkbox, consent, hidden, heading, info, submit, success, action) | Options (select/radio list) or placeholder | Required (yes). Row type \"action\" holds the POST endpoint link; \"success\" holds the thank-you message. Alternatively a single-cell row linking a .json sheet (Name, Label, Type, Options, Mandatory, Placeholder)"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Lead form sidebar (Solicita información)",
+    "pagesUsing": [
+      "/landings/es-es/edu-der-pol-seg-emp-art-hum-mba-com-ing-dis-sal-soc-mus-idi-gen-mas-exu-prg-cur-ofi-tpr-noa-estes-donde-estes-unir-sitio/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-23"
+  },
+  "reuseGuidance": "Default lead form. Without an action row, submissions are validated and acknowledged locally and never sent anywhere.",
+  "sourceUrl": "https://estudiar.unir.net/landings/es_es/edu_der_pol_seg_emp_art_hum_mba_com_ing_dis_sal_soc_mus_idi-gen-mas_exu_prg_cur-ofi_tpr-noa-estes-donde-estes-unir-sitio/"
+}

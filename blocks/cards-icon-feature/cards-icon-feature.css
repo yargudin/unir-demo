@@ -110,3 +110,265 @@
     padding: 50px 15% 60px;
   }
 }
+
+/* ---------- landing (body.landing): values from estudiar.unir.net section.m-card-block,
+   a horizontally scrolling row of light-grey icon cards with progress bar + prev/next ---------- */
+
+/* 24px between the section heading (default content) and the cards */
+body.landing .default-content-wrapper + .cards-icon-feature-wrapper {
+  margin-top: 24px;
+}
+
+/* the home panel is full bleed; on the landing the row sits in the content column */
+body.landing .cards-icon-feature {
+  margin: 0;
+  text-align: start;
+}
+
+/* scroll row: bleeds into the section padding below 1280px (scroll-padding keeps
+   the snapped card on the content edge) */
+body.landing .cards-icon-feature > ul {
+  display: flex;
+  gap: 8px;
+  margin: 0 -16px;
+  padding: 4px 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 16px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+body.landing .cards-icon-feature > ul::-webkit-scrollbar {
+  display: none;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-card {
+  display: flex;
+  flex: 0 1 calc(50% - 8px);
+  flex-direction: column;
+  gap: 24px;
+  min-width: 200px;
+  max-width: 256px;
+  border: 0;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: var(--light-color);
+  text-align: start;
+  scroll-snap-align: start;
+}
+
+/* icon: 56px Phosphor line glyph, blue */
+body.landing .cards-icon-feature .cards-icon-feature-card-icon,
+body.landing .cards-icon-feature .cards-icon-feature-card-icon > p {
+  justify-content: flex-start;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-card-icon {
+  width: 56px;
+  height: 56px;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-card-icon .icon {
+  width: 56px;
+  height: 56px;
+  color: #3d81f5;
+  font-size: 56px;
+  line-height: 56px;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-card-icon img,
+body.landing .cards-icon-feature .cards-icon-feature-card-icon svg {
+  width: 56px;
+  height: 56px;
+}
+
+body.landing .cards-icon-feature .icon-font::before {
+  font-family: Phosphor, sans-serif;
+}
+
+body.landing .cards-icon-feature .icon-spinner::before {
+  content: '\e66a';
+}
+
+body.landing .cards-icon-feature .icon-lightbulb::before {
+  content: '\e2dc';
+}
+
+body.landing .cards-icon-feature .icon-briefcase::before {
+  content: '\e0ee';
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-card-body {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-card-body .cards-icon-feature-title {
+  margin: 0;
+  color: var(--heading-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-card-body p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* controls (built by the block JS): only while the row overflows */
+body.landing .cards-icon-feature .cards-icon-feature-controls {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+body.landing .cards-icon-feature.scrollable .cards-icon-feature-controls {
+  display: flex;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-progress {
+  display: flex;
+  flex: 1 1 0%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: rgb(20 23 31 / 5%);
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-progress-segment {
+  position: relative;
+  flex: 1 1 0%;
+  height: 2px;
+  margin: 0;
+  border: 0;
+  border-radius: 1000px;
+  padding: 0;
+  background-color: rgb(20 23 31 / 5%);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* 18px tall hit area around the 2px bar */
+body.landing .cards-icon-feature .cards-icon-feature-progress-segment::before {
+  content: '';
+  position: absolute;
+  inset: -8px 0;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-progress-segment.active {
+  background-color: #052761;
+  cursor: default;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  width: 80px;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-divider {
+  width: 0;
+  height: 24px;
+  border-left: 1px solid rgb(20 23 31 / 10%);
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: transparent;
+  color: #0d61f2;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-btn::before {
+  display: block;
+  font-family: Phosphor, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-prev::before {
+  content: '\e058';
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-next::before {
+  content: '\e06c';
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-btn:disabled {
+  color: rgb(20 23 31 / 20%);
+  cursor: not-allowed;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-btn:hover:not(:disabled) {
+  background-color: #e7effe;
+}
+
+body.landing .cards-icon-feature .cards-icon-feature-nav-btn:active:not(:disabled) {
+  background-color: #cfdffc;
+}
+
+@media (width >= 600px) {
+  body.landing .cards-icon-feature > ul {
+    gap: 12px;
+    margin: 0 -32px;
+    padding: 4px 32px;
+    scroll-padding-inline: 32px;
+  }
+
+  body.landing .cards-icon-feature .cards-icon-feature-card {
+    min-width: 256px;
+    max-width: none;
+  }
+
+  body.landing .cards-icon-feature .cards-icon-feature-nav {
+    display: flex;
+  }
+}
+
+@media (width >= 768px) {
+  /* undo the home tablet layout */
+  body.landing .cards-icon-feature .cards-icon-feature-card {
+    border: 0;
+    padding: 16px;
+  }
+
+  body.landing .cards-icon-feature .cards-icon-feature-card-body p {
+    line-height: 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  body.landing .cards-icon-feature .cards-icon-feature-card {
+    max-width: 308px;
+  }
+}
+
+@media (width >= 1280px) {
+  body.landing .cards-icon-feature > ul {
+    gap: 16px;
+    margin: 0;
+    padding: 4px 0;
+    scroll-padding-inline: 0;
+  }
+}
